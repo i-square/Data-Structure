@@ -6,9 +6,11 @@
 
 ## 章节列表
 ### 第三章
-	- [x] 链表
-	- [ ] 栈
-	- [ ] 队列
+:ballot_box_with_check: 链表
+:white_check_mark: 栈
+:white_large_square: 队列
+:black_large_square: 测试
+
 ### 第四章
 	- 排序二叉树
 	- 平衡二叉树
