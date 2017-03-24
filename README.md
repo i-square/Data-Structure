@@ -10,7 +10,6 @@
 ## 章节列表（~~偷来的~~）
 ### 第一章
 :white_check_mark: 部分课后习题
-### 第二章
 ### 第三章
 :white_check_mark: 链表  
 :white_large_square: 栈  
