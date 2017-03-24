@@ -9,39 +9,87 @@ int ones(int n)
     return (n & 1) + ones(n >> 1);
 }
 
-//ex 1.13
 #include <vector>
 
+using namespace std;
+
+//ex 1.13
 template <typename Object>
 class Collection {
 public:
-    Collection() {}
+    typedef typename vector<Object>::const_iterator const_iterator;
+    typedef typename vector<Object>::size_type      size_type;
 
 public:
+    size_type size() const { return arr.size(); }
     bool isEmpty() const { return arr.empty(); }
     void makeEmpty() { arr.clear(); }
-    bool contains(Object &obj) { return _find(obj) != arr.cend(); }
-    void insert(Object &obj) { arr.push_back(obj); }
-    void remove(Object &obj)
+    bool contains(const Object &obj) { return _find(obj) != arr.cend(); }
+    void insert(const Object &obj) { arr.push_back(obj); }
+    void remove(const Object &obj)
     { 
-        if ((vector<Object>::const_iterator it = _find(obj)) != arr.cend())
+        auto it = _find(obj);
+        if (it != arr.cend())
             arr.erase(it);
     }
-
 private:
-    vector<Object>::const_iterator &_find(Object &obj)
+    const_iterator _find(const Object &obj)
     {
-        for (vector<Object>::const_iterator it = arr.cbegin();
-            it != arr.cend(); ++it)
-        {
+        auto it = arr.cbegin();
+        while (it != arr.cend()) {
             if (*it == obj)
                 return it;
+            ++it;
         }
         return it;
     }
 
 private:
     vector<Object> arr;
+};
+
+//ex 1.14
+template <typename Comparable>
+class OrderedCollection {
+    typedef typename vector<Comparable>::const_iterator const_iterator;
+    typedef typename vector<Comparable>::size_type      size_type;
+
+public:
+    size_type size() const { return arr.size(); }
+    bool isEmpty() const { return arr.empty(); }
+    void makeEmpty() { arr.clear(); }
+    void insert(const Comparable &obj) { arr.push_back(obj); }
+    void remove(const Comparable &obj)
+    {
+        auto it = arr.cbegin();
+        while (it != arr.cend()) {
+            if (*it == obj) {
+                arr.erase(it);
+                break;
+            }
+        }
+    }
+    const_iterator findMin() const
+    {
+        size_type minIdx = 0;
+        for (size_type i = 1; i < size(); ++i) {
+            if (arr[minIdx] > arr[i])
+                minIdx = i;
+        }
+        return arr.cbegin() + minIdx;
+    }
+    const_iterator findMax() const
+    {
+        size_type minIdx = 0;
+        for (size_type i = 1; i < size(); ++i) {
+            if (arr[minIdx] < arr[i])
+                minIdx = i;
+        }
+        return arr.cbegin() + minIdx;
+    }
+
+private:
+    vector<Comparable> arr;
 };
 
 #endif //EXERCISE_1_H

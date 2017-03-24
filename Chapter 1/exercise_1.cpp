@@ -1,11 +1,20 @@
 #include <iostream>
 
+#include "exercise_1.h"
+
 int main()
 {
-    int t;
-    while (std::cout << "input a number:", std::cin >> t)
-    {
-        std::cout << std::endl << ones(t) << std::endl;
+    OrderedCollection<int> ARR;
+
+    int temp = 0;
+    cout << "Please input some numbers(-1 means end): ";
+    while ((cin >> temp) && (temp != -1))
+        ARR.insert(temp);
+    
+    if (ARR.size()) {
+        cout << "Max number is: " << *ARR.findMax() << endl;
+        cout << "Min number is: " << *ARR.findMin() << endl;
     }
+
     return 0;
 }
