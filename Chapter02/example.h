@@ -1,6 +1,26 @@
 #ifndef EXAMPLE_H
 #define EXAMPLE_H
 
+#include <vector>
+using std::vector;
+
+// 二分搜索
+template <typename Comparable>
+int binarySearch(const vector<Comparable> &a, const Comparable &x)
+{
+    int low = 0, high = a.size() - 1, mid = 0;
+    while (low <= high) {
+        mid = (low + high) >> 1;
+        if (a[mid] < x)
+            low = mid + 1;
+        else if (a[mid] > x)
+            high = mid - 1;
+        else
+            return mid;
+    }
+    return -1; // -1 means NOT FOUND
+}
+
 // 最大公因数的欧几里得算法
 long gcd(long m, long n)
 {
