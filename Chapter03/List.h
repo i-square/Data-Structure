@@ -90,16 +90,25 @@ public:
 
     iterator insert(iterator itr, const Object &x)
     {
-        ;
+        Node *p = itr.current;
+        ++theSize;
+        return iterator(p->prev = p->prev->next = new Node(x, p->prev, p));
     }
 
     iterator erase(iterator itr)
     {
-        ;
+        Node *p = itr.current;
+        iterator retVal(p->next);
+        p->prev->next = p->next;
+        p->next->prev = p->prev;
+        --theSize;
     }
     iterator erase(iterator start, iterator end)
     {
-        ;
+        iterator itr = start;
+        while (itr != end)
+            itr = erase(itr);
+        return end;
     }
     
     bool empty() const { return size() == 0; }
@@ -130,8 +139,8 @@ private:
     void init()
     {
         theSize = 0;
-        head = new Node;
-        tail = new Node;
+        head = new Node();
+        tail = new Node();
         head->next = tail;
         tail->prev = head;
     }
