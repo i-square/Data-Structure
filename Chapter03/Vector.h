@@ -2,7 +2,7 @@
 #define VECTOR_H
 
 template <typename Object>
-class Vector() {
+class Vector {
     enum { SPARE_CAPACITY = 16 };
     typedef Object       *iterator;
     typedef const Object *const_iterator;
@@ -85,6 +85,6 @@ private:
     int theSize;
     int theCapacity;
     Object *objects;
-}
+};
 
 #endif // VECTOR_H
