@@ -1,8 +1,10 @@
 #ifndef LIST_H
 #define LIST_H
 
+#include <exception>
+
 template <typename Object>
-class List() {
+class List {
 private:
     struct Node {
         Node(const Object &d = Object(), Node *p = nullptr, Node *n = nullptr)
@@ -15,7 +17,7 @@ private:
 public:
     class const_iterator {
     public:
-        const_iterator() : current(nullptr) { }
+        const_iterator() : theList(nullptr), current(nullptr) { }
         const Object &operator*() const { return retrieve(); }
         const_iterator &operator++() 
         {
@@ -31,14 +33,20 @@ public:
 
         bool operator==(const const_iterator &rhs) const
         { return current == rhs.current; }
-        bool operator==(const const_iterator &rhs) const
+        bool operator!=(const const_iterator &rhs) const
         { return !(*this == rhs); }
 
     protected:
         friend class List<Object>;
-        const_iterator(Node *p) : current(p) {}
+        const List<Object> *theList;
+        const_iterator(const List<Object> &lst, Node *p) : theList(&lst), current(p) {}
         Node *current;
         Object &retrieve() const { return current->data; }
+        void assertIsValid() const
+        {
+            if (theList == nullptr || current == nullptr || theList->head == current)
+                throw std::runtime_error("Iterator out of bounds.");
+        }
     };
     class iterator : public const_iterator {
     public:
@@ -61,7 +69,7 @@ public:
 
     protected:
         friend class List<Object>;
-        iterator(Node *p) : const_iterator(p) { }
+        iterator(const List<Object> &lst, Node *p) : const_iterator(lst, p) { }
     };
 
 public:
@@ -90,21 +98,39 @@ public:
 
     iterator insert(iterator itr, const Object &x)
     {
+        itr.assertIsValid();
+        if (itr.theList != this)
+            throw std::logic_error("Iterator mismatch.");
+
         Node *p = itr.current;
         ++theSize;
-        return iterator(p->prev = p->prev->next = new Node(x, p->prev, p));
+        return iterator(*this, p->prev = p->prev->next = new Node(x, p->prev, p));
     }
 
     iterator erase(iterator itr)
     {
+        itr.assertIsValid();
+        if (itr.theList != this)
+            throw std::logic_error("Iterator mismatch.");
+
         Node *p = itr.current;
-        iterator retVal(p->next);
+        iterator retVal(*itr.theList, p->next);
         p->prev->next = p->next;
         p->next->prev = p->prev;
         --theSize;
+
+        return retVal;
     }
     iterator erase(iterator start, iterator end)
     {
+        start.assertIsValid();
+        if (start.theList != this)
+            throw std::logic_error("Iterator mismatch.");
+
+        end.assertIsValid();
+        if (end.theList != this)
+            throw std::logic_error("Iterator mismatch.");
+
         iterator itr = start;
         while (itr != end)
             itr = erase(itr);
@@ -130,10 +156,10 @@ public:
     void pop_front() { erase(begin()); }
     void pop_back() { erase(--end()); }
 
-    iterator begin() { return iterator(head->next); }
-    const_iterator begin() const { return const_iterator(head->next); }
-    iterator end() { return iterator(tail); }
-    const_iterator end() const { return const_iterator(tail); }
+    iterator begin() { return iterator(*this, head->next); }
+    const_iterator begin() const { return const_iterator(*this, head->next); }
+    iterator end() { return iterator(*this, tail); }
+    const_iterator end() const { return const_iterator(*this, tail); }
 
 private:
     void init()
@@ -149,6 +175,6 @@ private:
     int theSize;
     Node *head;
     Node *tail;
-}
+};
 
 #endif // LIST_H
