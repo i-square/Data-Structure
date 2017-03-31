@@ -88,7 +88,7 @@ public:
 
     const List &operator=(const List &rhs)
     {
-        if (*this == rhs)
+        if (this == &rhs)
             return *this;
         clear();
         for (const_iterator itr = rhs.begin(); itr != rhs.end(); ++itr)

@@ -24,7 +24,7 @@ public:
 
     const Vector &operator=(const Vector &rhs)
     {
-        if (*this != rhs) {
+        if (this != &rhs) {
             delete[] objects;
             theSize = rhs.size();
             theCapacity = rhs.capacity();
