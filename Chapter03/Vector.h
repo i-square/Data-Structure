@@ -1,6 +1,8 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
+#include <exception>
+
 template <typename Object>
 class Vector {
     enum { SPARE_CAPACITY = 16 };
@@ -24,7 +26,7 @@ public:
 
     const Vector &operator=(const Vector &rhs)
     {
-        if (*this != rhs) {
+        if (this != &rhs) {
             delete[] objects;
             theSize = rhs.size();
             theCapacity = rhs.capacity();
@@ -58,10 +60,25 @@ public:
         delete[] oldArray;
     }
 
-    Object &operator[](int index) { return objects[index]; }
-    const Object &operator[](int index) const { return objects[index]; }
+    Object &operator[](int index)
+    {
+        // ex3.7 Ìí¼Ó±ß½ç¼ì²â
+        if (index >= 0 && index < size())
+            return objects[index];
+        else
+            throw std::runtime_error("index out of bounds");
+    }
+    const Object &operator[](int index) const
+    {
+        // ex3.7 Ìí¼Ó±ß½ç¼ì²â
+        if (index >= 0 && index < size())
+            return objects[index];
+        else
+            throw std::runtime_error("index out of bounds");
+    }
     
     bool empty() const { return size() == 0; }
+    void clear() { theSize = 0; }
     int size() const { return theSize; }
     int capacity() const { return theCapacity;}
 
