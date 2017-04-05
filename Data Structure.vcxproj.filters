@@ -15,8 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Chapter03\Vector.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="Chapter04\test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
