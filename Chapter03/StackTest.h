@@ -24,36 +24,25 @@ public:
 
         for (auto it = rpn.begin(); it != rpn.end(); ++it) {
             strT = *it;
-            if (strT == "+") {
-                d1 = dstk.top();
-                dstk.pop();
-                d2 = dstk.top();
-                dstk.pop();
-                d = d2 + d1;
-                dstk.push(d);
-            } else if (strT == "-") {
-                d1 = dstk.top();
-                dstk.pop();
-                d2 = dstk.top();
-                dstk.pop();
-                d = d2 - d1;
-                dstk.push(d);
-            } else if (strT == "*") {
-                d1 = dstk.top();
-                dstk.pop();
-                d2 = dstk.top();
-                dstk.pop();
-                d = d2 * d1;
-                dstk.push(d);
-            } else if (strT == "/") {
-                d1 = dstk.top();
-                dstk.pop();
-                d2 = dstk.top();
-                dstk.pop();
-                d = d2 / d1;
-                dstk.push(d);
-            } else {
+            if (isdigit(strT[0])) {
                 dstk.push(std::stod(strT));
+            } else {
+                d1 = dstk.top();
+                dstk.pop();
+                d2 = dstk.top();
+                dstk.pop();
+
+                if (strT == "+") {
+                    d = d2 + d1;
+                } else if (strT == "-") {
+                    d = d2 - d1;
+                } else if (strT == "*") {
+                    d = d2 * d1;
+                } else if (strT == "/") {
+                    d = d2 / d1;
+                }
+
+                dstk.push(d);
             }
         }
         return dstk.top();
@@ -66,36 +55,25 @@ public:
 
         for (auto it = _rpn.begin(); it != _rpn.end(); ++it) {
             strT = *it;
-            if (strT == "+") {
-                d1 = dstk.top();
-                dstk.pop();
-                d2 = dstk.top();
-                dstk.pop();
-                d = d2 + d1;
-                dstk.push(d);
-            } else if (strT == "-") {
-                d1 = dstk.top();
-                dstk.pop();
-                d2 = dstk.top();
-                dstk.pop();
-                d = d2 - d1;
-                dstk.push(d);
-            } else if (strT == "*") {
-                d1 = dstk.top();
-                dstk.pop();
-                d2 = dstk.top();
-                dstk.pop();
-                d = d2 * d1;
-                dstk.push(d);
-            } else if (strT == "/") {
-                d1 = dstk.top();
-                dstk.pop();
-                d2 = dstk.top();
-                dstk.pop();
-                d = d2 / d1;
-                dstk.push(d);
-            } else {
+            if (isdigit(strT[0])) {
                 dstk.push(std::stod(strT));
+            } else {
+                d1 = dstk.top();
+                dstk.pop();
+                d2 = dstk.top();
+                dstk.pop();
+
+                if (strT == "+") {
+                    d = d2 + d1;
+                } else if (strT == "-") {
+                    d = d2 - d1;
+                } else if (strT == "*") {
+                    d = d2 * d1;
+                } else if (strT == "/") {
+                    d = d2 / d1;
+                }
+
+                dstk.push(d);
             }
         }
         return dstk.top();
