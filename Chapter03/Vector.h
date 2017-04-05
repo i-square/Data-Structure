@@ -62,6 +62,7 @@ public:
     const Object &operator[](int index) const { return objects[index]; }
     
     bool empty() const { return size() == 0; }
+    void clear() { theSize = 0; }
     int size() const { return theSize; }
     int capacity() const { return theCapacity;}
 
