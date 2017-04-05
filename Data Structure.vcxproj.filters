@@ -15,16 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Chapter03\Stack.h">
+    <ClInclude Include="Chapter03\Vector.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Chapter03\StackTest.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Chapter03\StackTest.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
