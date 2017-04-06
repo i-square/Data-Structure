@@ -1,5 +1,5 @@
-#ifndef STACKTEST_H
-#define STACKTEST_H
+#ifndef SIMPLECALCULATOR_H
+#define SIMPLECALCULATOR_H
 
 #include <string>
 using std::string;
@@ -19,7 +19,7 @@ public:
     {
         Vector<string> rpn = toRPN(s);
         double d = 0.0, d1 = 0.0, d2 = 0.0;
-        ArrStack<double> dstk;
+        LinkStack<double> dstk;
         string strT;
 
         for (auto it = rpn.begin(); it != rpn.end(); ++it) {
@@ -50,7 +50,7 @@ public:
     double getResult()
     {
         double d = 0.0, d1 = 0.0, d2 = 0.0;
-        ArrStack<double> dstk;
+        LinkStack<double> dstk;
         string strT;
 
         for (auto it = _rpn.begin(); it != _rpn.end(); ++it) {
@@ -83,7 +83,7 @@ private:
     const Vector<string> toRPN(const string &s)
     {
         Vector<string> vec;
-        ArrStack<char> opStk;
+        LinkStack<char> opStk;
         char tch[2] = { 0 };
 
         for (auto it = s.cbegin(); it != s.cend(); ++it) {
@@ -162,4 +162,4 @@ private:
     Vector<string> _rpn;
 };
 
-#endif //STACKTEST_H
+#endif //SIMPLECALCULATOR_H

@@ -14,11 +14,11 @@
 :white_check_mark: 部分课后习题+简单例程
 ### 第三章
 :white_check_mark: 链表  
-:white_large_square: 栈  
-:white_large_square: 队列  
+:white_check_mark: 栈  
+:white_check_mark: 队列  
 ### 第四章
-:white_large_square: 排序二叉树  
-:white_large_square: 平衡二叉树  
+:white_check_mark: 二叉查找树  
+:white_large_square: AVL树  
 :white_large_square: 伸展树（自底向上）  
 :white_large_square: 伸展树（自顶往下）  
 ### 第五章
