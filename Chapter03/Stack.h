@@ -13,26 +13,18 @@ private:
     };
 
 public:
-    LinkStack() : stackSize(0), ptrTop(new Node()) { }
-    LinkStack(const LinkStack &rhs) : stackSize(0), ptrTop(new Node()) { operator=(rhs); }
-    ~LinkStack()
-    {
-        clear();
-        delete ptrTop;
-    }
+    LinkStack() : stackSize(0), head(nullptr) { }
+    LinkStack(const LinkStack &rhs) : stackSize(0), head(nullptr) { operator=(rhs); }
+    ~LinkStack() { clear(); }
     const LinkStack &operator=(const LinkStack &rhs)
     {
         if (this != &rhs) {
             clear();
 
-            Node *src = rhs.ptrTop->next;
-            Node *dest = ptrTop;
+            Node *src = rhs.head;
 
             while (src != nullptr) {
-                Node *tmp = new Node(src->data);
-                dest->next = tmp;
-                dest = tmp;
-                ++stackSize;
+                push(src->data);
                 src = src->next;
             }
         }
@@ -41,32 +33,24 @@ public:
 
     void push(const T &x)
     {
-        Node *tmp = new Node(x);
-        tmp->next = ptrTop->next;
-        ptrTop->next = tmp;
+        Node *ptr = new Node(x, head);
+        head = ptr;
         ++stackSize;
     }
-    T &pop()
+    void pop()
     {
-        Node *oldTop = ptrTop;
-        ptrTop = ptrTop->next;
+        Node *ptr = head->next;
+        delete head;
+        head = ptr;
         --stackSize;
-        return oldTop->data;
-    }
-    const T &pop() const
-    {
-        Node *oldTop = ptrTop;
-        ptrTop = ptrTop->next;
-        --stackSize;
-        return oldTop->data;
     }
     T &top()
     {
-        return ptrTop->next->data;
+        return head->data;
     }
     const T &top() const
     {
-        return ptrTop->next->data;
+        return head->data;
     }
     bool empty() const { return size() == 0; }
     int size() const { return stackSize; }
@@ -78,7 +62,7 @@ public:
     
 private:
     int stackSize;
-    Node *ptrTop;
+    Node *head;
 };
 
 template <typename T>
