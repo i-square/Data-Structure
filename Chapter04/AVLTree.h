@@ -1,29 +1,30 @@
-#ifndef BINARYSEARCHTREE_H
-#define BINARYSEARCHTREE_H
+#ifndef AVLTREE_H
+#define AVLTREE_H
 
 #include <iostream>
 using std::cout;
 using std::endl;
 
 template <typename T>
-class BinarySearchTree {
+class AVLTree {
 private:
-    struct BinaryNode {
-        BinaryNode (const T &element, BinaryNode *lt, BinaryNode *rt)
-            : ele(element), left(lt), right(rt)
+    struct AVLNode {
+        AVLNode (const T &element, AVLNode *lt, AVLNode *rt, int h = 0)
+            : ele(element), left(lt), right(rt), height(h)
         {}
         T ele;
-        BinaryNode *left;
-        BinaryNode *right;
+        AVLNode *left;
+        AVLNode *right;
+        int height;
     };
 
 public:
-    BinarySearchTree() : root(nullptr) {}
-    BinarySearchTree(const BinarySearchTree &rhs) { operator=(rhs); }
-    ~BinarySearchTree() { makeEmpty(); }
+    AVLTree() : root(nullptr) {}
+    AVLTree(const AVLTree &rhs) { operator=(rhs); }
+    ~AVLTree() { makeEmpty(); }
 
 public:
-    const BinarySearchTree &operator=(const BinarySearchTree &rhs)
+    const AVLTree &operator=(const AVLTree &rhs)
     {
         if (this != &rhs) {
             makeEmpty();
@@ -43,14 +44,14 @@ public:
     void remove(const T &x) { remove(x, root); }
 
 private:
-    BinaryNode *clone(BinaryNode *t) const
+    AVLNode *clone(AVLNode *t) const
     {
         if (t == nullptr)
             return nullptr;
 
-        return new BinaryNode(t->ele, clone(t->left), clone(t->right));
+        return new AVLNode(t->ele, clone(t->left), clone(t->right));
     }
-    BinaryNode *findMin(BinaryNode *t) const
+    AVLNode *findMin(AVLNode *t) const
     {
         if (t == nullptr)
             return nullptr;
@@ -58,7 +59,7 @@ private:
             return t;
         return findMin(t->left);
     }
-    BinaryNode *findMax(BinaryNode *t) const
+    AVLNode *findMax(AVLNode *t) const
     {
         if (t != nullptr) {
             while (t->right != nullptr)
@@ -66,7 +67,7 @@ private:
         }
         return t;
     }
-    bool contains(const T &x, BinaryNode *t)
+    bool contains(const T &x, AVLNode *t)
     {
         if (t == nullptr)
             return false;
@@ -77,7 +78,7 @@ private:
         else
             return true;
     }
-    void printTree(BinaryNode *t) const
+    void printTree(AVLNode *t) const
     {
         if (t == nullptr)
             return;
@@ -85,7 +86,7 @@ private:
         printTree(t->left);
         printTree(t->right);
     }
-    void makeEmpty(BinaryNode *&t)
+    void makeEmpty(AVLNode *&t)
     {
         if (t != nullptr) {
             makeEmpty(t->left);
@@ -94,10 +95,10 @@ private:
         }
         t = nullptr;
     }
-    void insert(const T &x, BinaryNode *&t) const
+    void insert(const T &x, AVLNode *&t) const
     {
         if (t == nullptr)
-            t = new BinaryNode(x, nullptr, nullptr);
+            t = new AVLNode(x, nullptr, nullptr);
         else if (x < t->ele)
             insert(x, t->left);
         else if (t->ele < x)
@@ -105,26 +106,14 @@ private:
         else
             ; //do nothing
     }
-    void remove(const T &x, BinaryNode *&t) const
+    void remove(const T &x, AVLNode *&t) const
     {
-        if (t == nullptr)
-            ; //not found, do nothing
-        if (x < t->ele)
-            remove(x, t->left);
-        else if (t->ele < x)
-            remove(x, t->right);
-        else if (t->left != nullptr && t->right != nullptr) { //2 children
-            t->ele = findMin(t->right)->ele; //用右子树的最小值替代当前值
-            remove(t->ele, t->right); //删掉右子树的最小值
-        } else {
-            BinaryNode *old = t;
-            t = (t->left != nullptr) ? t->left : t->right;
-            delete old;
-        }
     }
 
+    int height(AVLNode *t) const { return t == nullptr ? -1 : t->height; }
+
 private:
-    BinaryNode *root;
+    AVLNode *root;
 };
 
-#endif //BINARYSEARCHTREE_H
+#endif //AVLTREE_H

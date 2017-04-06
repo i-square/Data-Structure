@@ -177,4 +177,119 @@ private:
     Node *tail;
 };
 
+//ex 3.11
+#include <iostream>
+using std::cout;
+using std::endl;
+
+template <typename T>
+class SingleList {
+private:
+    struct Node {
+        Node(const T &d = T(), Node *n = nullptr)
+            : data(d), next(n)
+        {
+        }
+        T data;
+        Node *next;
+    };
+
+public:
+    SingleList() { init(); }
+    SingleList(const SingleList &rhs) { operator=(rhs); }
+    ~SingleList() { eraseList(head); }
+
+public:
+    const SingleList &operator=(const SingleList &rhs)
+    {
+        if (this != &rhs) {
+            eraseList(head);
+            init();
+
+            theSize = rhs.theSize;
+
+            Node *src = rhs.head;
+
+            while (src != nullptr) {
+                add(src->data);
+                src = src->next;
+            }
+        }
+        return *this;
+    }
+
+    bool add(const T &x)
+    {
+        if (contains(x))
+            return false;
+        else {
+            Node *ptr = new Node(x);
+            ptr->next = head->next;
+            head->next = ptr;
+            ++theSize;
+        }
+        return true;
+    }
+    bool remove(const T &x)
+    {
+        if (!contains(x))
+            return false;
+        else {
+            Node *ptr = head->next;
+            Node *trailer = nullptr;
+            while (x != ptr->data) {
+                trailer = ptr;
+                ptr = ptr->next;
+            }
+            trailer->next = ptr->next;
+            delete ptr;
+            --theSize;
+        }
+        return true;
+    }
+    bool contains(const T &x)
+    {
+        Node *ptr = head->next;
+        while (ptr != nullptr) {
+            if (ptr->data == x)
+                return true;
+            else
+                ptr = ptr->next;
+        }
+        return false;
+    }
+    void eraseList(Node *L)
+    {
+        Node *ptr = L;
+        Node *nextPtr = nullptr;
+        while (ptr != nullptr) {
+            nextPtr = ptr->next;
+            delete ptr;
+            ptr = nextPtr;
+        }
+    }
+    void print()
+    {
+        Node *ptr = head->next;
+        while (ptr != nullptr) {
+            cout << ptr->data << "¡ú";
+            ptr = ptr->next;
+        }
+        cout << endl;
+    }
+    int size() const { return theSize; }
+
+private:
+    void init()
+    {
+        theSize = 0;
+        head = new Node();
+        head->next = nullptr;
+    }
+
+private:
+    Node *head;
+    int theSize;
+};
+
 #endif // LIST_H
