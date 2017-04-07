@@ -7,20 +7,22 @@
 ## 文件内容
 所有实现均~~计划~~给出`.h` `.cpp`文件以及部分用于测试的`test.cpp`文件
 
-## 章节列表（~~偷来的~~）
-### 第一章
-:white_check_mark: 部分课后习题
-### 第二章
+## 环境
+- Windows 10 \& 8.1
+- Visual Studio 2015 with update 3
+- C++ (部分C++11语法)
+
+## 章节列表
+### 第一章 & 第二章
 :white_check_mark: 部分课后习题+简单例程
 ### 第三章
+:white_check_mark: Vector和List  
 :white_check_mark: 链表  
 :white_check_mark: 栈  
 :white_check_mark: 队列  
 ### 第四章
 :white_check_mark: 二叉查找树  
 :white_check_mark: AVL树  
-:white_large_square: 伸展树（自底向上）  
-:white_large_square: 伸展树（自顶往下）  
 ### 第五章
 :white_large_square: 哈希表（分离链接法）  
 :white_large_square: 哈希表（开放定址法）  
@@ -56,8 +58,3 @@
 :white_large_square: Treap树  
 :white_large_square: Kd树  
 :white_large_square: 配对堆  
-
-## 环境
-- Windows 10 \& 8.1
-- Visual Studio 2015 with update 3
-- C++

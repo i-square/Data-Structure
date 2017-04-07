@@ -30,6 +30,17 @@ public:
             ++(*this);
             return old;
         }
+        const_iterator &operator--()
+        {
+            current = current->prev;
+            return *this;
+        }
+        const_iterator &operator--(int)
+        {
+            const_iterator old = *this;
+            --(*this);
+            return old;
+        }
 
         bool operator==(const const_iterator &rhs) const
         { return current == rhs.current; }
@@ -65,6 +76,26 @@ public:
             iterator old = *this;
             ++(*this);
             return old;
+        }
+        iterator &operator--()
+        {
+            current = current->prev;
+            return *this;
+        }
+        iterator &operator--(int)
+        {
+            iterator old = *this;
+            --(*this);
+            return old;
+        }
+
+        bool operator==(const iterator &rhs) const
+        {
+            return current == rhs.current;
+        }
+        bool operator!=(const iterator &rhs) const
+        {
+            return !(*this == rhs);
         }
 
     protected:
@@ -148,7 +179,7 @@ public:
     Object &front() { return *begin(); }
     const Object &front() const { return *begin(); }
     Object &back() { return *--end(); }
-    const Object &back() const {  return *--end();  }
+    const Object &back() const {  return *--end(); }
 
     void push_front(const Object &x) { insert(begin(), x); }
     void push_back(const Object &x) { insert(end(), x); }

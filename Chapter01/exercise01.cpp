@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "exercise_1.h"
+#include "exercise01.h"
 
 int main()
 {
