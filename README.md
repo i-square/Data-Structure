@@ -18,7 +18,7 @@
 :white_check_mark: 队列  
 ### 第四章
 :white_check_mark: 二叉查找树  
-:white_large_square: AVL树  
+:white_check_mark: AVL树  
 :white_large_square: 伸展树（自底向上）  
 :white_large_square: 伸展树（自顶往下）  
 ### 第五章
