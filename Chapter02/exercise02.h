@@ -1,5 +1,5 @@
-#ifndef EXERCISE_2_H
-#define EXERCISE_2_H
+#ifndef EXERCISE02_H
+#define EXERCISE02_H
 
 #include <vector>
 using std::vector;
@@ -51,4 +51,4 @@ maxInfo maxSubSum(const vector<int> &a)
     return info;
 }
 
-#endif //EXERCISE_2_H
+#endif //EXERCISE02_H
