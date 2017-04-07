@@ -34,7 +34,7 @@ public:
 
     const T &findMin() const { return findMin(root)->ele; } //应保证非空调用
     const T &findMax() const { return findMax(root)->ele; } //应保证非空调用
-    bool contains(const T &x) { return contains(x, root); }
+    bool contains(const T &x) const { return contains(x, root); }
     bool empty() const { return root == nullptr; }
     void printTree() const { printTree(root); }
 
@@ -66,7 +66,7 @@ private:
         }
         return t;
     }
-    bool contains(const T &x, BinaryNode *t)
+    bool contains(const T &x, BinaryNode *t) const
     {
         if (t == nullptr)
             return false;
@@ -77,13 +77,19 @@ private:
         else
             return true;
     }
-    void printTree(BinaryNode *t) const
+    void printDepth(const T &x, int depth = 0) const
+    {
+        while (depth--)
+            cout << "\t";
+        cout << "[" << x << "]" << endl;
+    }
+    void printTree(BinaryNode *t, int depth = 0) const
     {
         if (t == nullptr)
-            return;
-        cout << t->ele << endl; //这句放的位置决定了前中后序遍历
-        printTree(t->left);
-        printTree(t->right);
+            return; // do nothing
+        printTree(t->left, depth + 1);
+        printDepth(t->ele, depth); //这句放的位置决定了前中后序遍历
+        printTree(t->right, depth + 1);
     }
     void makeEmpty(BinaryNode *&t)
     {
@@ -94,7 +100,7 @@ private:
         }
         t = nullptr;
     }
-    void insert(const T &x, BinaryNode *&t) const
+    void insert(const T &x, BinaryNode *&t)
     {
         if (t == nullptr)
             t = new BinaryNode(x, nullptr, nullptr);
@@ -105,7 +111,7 @@ private:
         else
             ; //do nothing
     }
-    void remove(const T &x, BinaryNode *&t) const
+    void remove(const T &x, BinaryNode *&t)
     {
         if (t == nullptr)
             ; //not found, do nothing

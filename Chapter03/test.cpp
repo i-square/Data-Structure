@@ -15,10 +15,12 @@ int main()
     int a[20] = { 29, 14, 15, 84, 65, 85, 92, 81, 51, 13, 5, 18, -64, 89, 66, 21, 32, 27, 24, 52 };
     LinkQueue<int> que;
     SingleList<int> lst;
+    List<int> dlst;
 
     for (int i = 0; i < 20; ++i) {
         que.enqueue(a[i]);
         lst.add(a[i]);
+        dlst.push_back(a[i]);
     }
 
     cout << "queue: ";
@@ -28,6 +30,10 @@ int main()
 
     cout << "single list: ";
     lst.print();
+
+    cout << dlst.back() << " pop_back: ";
+    dlst.pop_back();
+    cout << dlst.back() << endl;
 
     getchar();
 
