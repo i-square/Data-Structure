@@ -34,7 +34,7 @@ public:
 
     const T &findMin() const { return findMin(root)->ele; } //应保证非空调用
     const T &findMax() const { return findMax(root)->ele; } //应保证非空调用
-    bool contains(const T &x) { return contains(x, root); }
+    bool contains(const T &x) const { return contains(x, root); }
     bool empty() const { return root == nullptr; }
     void printTree() const { printTree(root); }
 
@@ -66,7 +66,7 @@ private:
         }
         return t;
     }
-    bool contains(const T &x, BinaryNode *t)
+    bool contains(const T &x, BinaryNode *t) const
     {
         if (t == nullptr)
             return false;

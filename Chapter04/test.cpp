@@ -6,6 +6,7 @@ using namespace std;
 
 #include "BinarySearchTree.h"
 #include "AVLTree.h"
+#include "exercise04.h"
 
 int main()
 {
@@ -44,6 +45,26 @@ int main()
     cout << endl << endl;
     
     AvlTree.printTree();
+
+    //ex4.11
+    Set<int> st;
+    for (int i = 0; i < 50; ++i)
+        st.insert(arr[i]);
+
+    cout << "Set contains: " << endl;
+    Set<int>::const_iterator itr = st.begin();
+    for (int i = 0; i < st.size(); ++i, ++itr) {
+        cout << *itr << ",";
+    }
+    cout << endl;
+    cout << "erase: " << arr[10] << endl;
+    st.erase(arr[10]);
+    cout << "Now contains: " << endl;
+    itr = st.begin();
+    for (int i = 0; i < st.size(); ++i, ++itr) {
+        cout << *itr << ",";
+    }
+    cout << endl;
 
     getchar();
     return 0;
