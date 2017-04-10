@@ -18,6 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Chapter05\HashTable%28Open_Addressing_Hashing%29.h" />
+    <ClInclude Include="Chapter05\HashTable(Separate_Chaining).h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BB2BB86B-D2ED-42B0-AF95-C1F72D5031E6}</ProjectGuid>
     <RootNamespace>Data-Structure</RootNamespace>
