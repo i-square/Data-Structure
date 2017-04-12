@@ -25,7 +25,7 @@ class HashTable_SC {
 
 public:
     HashTable_SC() = delete;
-    explicit HashTable_SC(int size = nextPrime(50)) : curSize(0), theLists(size) { makeEmpty(); }
+    explicit HashTable_SC(int size) : curSize(0), theLists(size) { makeEmpty(); }
     HashTable_SC(const HashTable_SC &rhs) { operator=(rhs); }
     ~HashTable_SC() = default;
     const HashTable_SC &operator=(const HashTable_SC &rhs)
