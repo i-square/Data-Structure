@@ -32,7 +32,7 @@ private:
 
 public:
     HashTable_OAH() = delete;
-    explicit HashTable_OAH(int size = nextPrime(50)) : curSize(0), arr(size) { makeEmpty(); }
+    explicit HashTable_OAH(int size) : curSize(0), arr(size) { makeEmpty(); }
     HashTable_OAH(const HashTable_OAH &rhs) { operator=(rhs); }
     ~HashTable_OAH() = default;
     const HashTable_OAH &operator=(const HashTable_OAH &rhs)

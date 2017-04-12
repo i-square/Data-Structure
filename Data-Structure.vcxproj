@@ -18,6 +18,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Chapter06\BinaryHeap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Chapter06\test.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BB2BB86B-D2ED-42B0-AF95-C1F72D5031E6}</ProjectGuid>
     <RootNamespace>Data-Structure</RootNamespace>
