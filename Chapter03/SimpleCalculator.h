@@ -1,5 +1,5 @@
-#ifndef SIMPLECALCULATOR_H
-#define SIMPLECALCULATOR_H
+#ifndef DS_CH03_SIMPLECALCULATOR_H
+#define DS_CH03_SIMPLECALCULATOR_H
 
 #include <string>
 using std::string;
@@ -162,4 +162,4 @@ private:
     Vector<string> _rpn;
 };
 
-#endif //SIMPLECALCULATOR_H
+#endif // DS_CH03_SIMPLECALCULATOR_H

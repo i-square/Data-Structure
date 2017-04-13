@@ -1,5 +1,5 @@
-#ifndef HASHTABLE_SC_H
-#define HASHTABLE_SC_H
+#ifndef DS_CH05_HASHTABLE_SC_H
+#define DS_CH05_HASHTABLE_SC_H
 
 #include <vector>
 #include <list>
@@ -109,4 +109,4 @@ private:
     int curSize;
 };
 
-#endif //HASHTABLE_SC_H
+#endif // DS_CH05_HASHTABLE_SC_H

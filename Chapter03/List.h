@@ -1,5 +1,5 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef DS_CH03_LIST_H
+#define DS_CH03_LIST_H
 
 #include <stdexcept>
 
@@ -323,4 +323,4 @@ private:
     int theSize;
 };
 
-#endif // LIST_H
+#endif // DS_CH03_LIST_H

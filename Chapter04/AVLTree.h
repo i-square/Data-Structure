@@ -1,5 +1,5 @@
-#ifndef AVLTREE_H
-#define AVLTREE_H
+#ifndef DS_CH04_AVLTREE_H
+#define DS_CH04_AVLTREE_H
 
 #include <algorithm>
 #include <iostream>
@@ -255,4 +255,4 @@ private:
     AVLNode *root;
 };
 
-#endif //AVLTREE_H
+#endif // DS_CH04_AVLTREE_H

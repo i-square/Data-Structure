@@ -1,5 +1,5 @@
-#ifndef VECTOR_H
-#define VECTOR_H
+#ifndef DS_CH03_VECTOR_H
+#define DS_CH03_VECTOR_H
 
 #include <stdexcept>
 
@@ -104,4 +104,4 @@ private:
     Object *objects;
 };
 
-#endif // VECTOR_H
+#endif // DS_CH03_VECTOR_H

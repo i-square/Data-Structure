@@ -1,5 +1,5 @@
-#ifndef EXERCISE04_H
-#define EXERCISE04_H
+#ifndef DS_CH04_EXERCISE04_H
+#define DS_CH04_EXERCISE04_H
 
 //ex4.11 未考虑end()如何实现
 template <typename T>
@@ -207,4 +207,4 @@ private:
     BinaryNode *root;
 };
 
-#endif //EXERCISE04_H
+#endif // DS_CH04_EXERCISE04_H

@@ -1,5 +1,5 @@
-#ifndef STACK_H
-#define STACK_H
+#ifndef DS_CH03_STACK_H
+#define DS_CH03_STACK_H
 
 template <typename T>
 class LinkStack {
@@ -149,4 +149,4 @@ private:
     T *theArray;
 };
 
-#endif //STACK_H
+#endif // DS_CH03_STACK_H
