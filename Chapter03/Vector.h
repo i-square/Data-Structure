@@ -1,7 +1,7 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
-#include <exception>
+#include <stdexcept>
 
 template <typename Object>
 class Vector {
