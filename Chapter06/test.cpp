@@ -9,18 +9,17 @@ using namespace std;
 int main()
 {
     default_random_engine e(static_cast<unsigned int>(time(nullptr)));
-    uniform_int_distribution<int> u(1, 10000);
+    uniform_int_distribution<int> u(1, 100);
 
-    int arr[10000] = { 0 };
-    for (int i = 0; i < 10000; ++i)
+    int arr[100] = { 0 };
+    for (int i = 0; i < 100; ++i)
         arr[i] = u(e);
 
-    BinaryHeap<int> BHeap(10000);
-    for (int i = 0; i < 10000; ++i)
+    BinaryHeap<int> BHeap(100);
+    for (int i = 0; i < 100; ++i)
         BHeap.insert(arr[i]);
-    BinaryHeap<int> tHeap(BHeap);
 
-    cout << tHeap.findMin() << endl;
+    cout << "BHeap size: " << BHeap.size() << ", min: " << BHeap.findMin() << endl;
 
     getchar();
     return 0;

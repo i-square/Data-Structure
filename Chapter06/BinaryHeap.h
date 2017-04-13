@@ -1,7 +1,8 @@
-#ifndef BINARYHEAP_H
-#define BINARYHEAP_H
+#ifndef DS_CH06_BINARYHEAP_H
+#define DS_CH06_BINARYHEAP_H
 
 #include <vector>
+#include <stdexcept>
 
 template <typename T>
 class BinaryHeap {
@@ -21,7 +22,7 @@ public:
     ~BinaryHeap() = default;
     
 public:
-    const BinaryHeap &operator=(const BinaryHeap &rhs)
+    BinaryHeap &operator=(const BinaryHeap &rhs)
     {
         if (this != &rhs) {
             makeEmpty();
@@ -50,6 +51,7 @@ public:
 
         //percolateUp
         int hole = ++curSize;
+        //这样的操作避免了交换，只需替换
         for (; hole > 1 && x < arr[hole >> 1]; hole >>= 1)
             arr[hole] = arr[hole >> 1];
 
@@ -101,4 +103,4 @@ private:
     vector<T> arr;
 };
 
-#endif //BINARYHEAP_H
+#endif // DS_CH06_BINARYHEAP_H

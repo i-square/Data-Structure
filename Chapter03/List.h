@@ -1,7 +1,7 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef DS_CH03_LIST_H
+#define DS_CH03_LIST_H
 
-#include <exception>
+#include <stdexcept>
 
 template <typename Object>
 class List {
@@ -117,7 +117,7 @@ public:
         delete tail;
     }
 
-    const List &operator=(const List &rhs)
+    List &operator=(const List &rhs)
     {
         if (this == &rhs)
             return *this;
@@ -231,7 +231,7 @@ public:
     ~SingleList() { eraseList(head); }
 
 public:
-    const SingleList &operator=(const SingleList &rhs)
+    SingleList &operator=(const SingleList &rhs)
     {
         if (this != &rhs) {
             eraseList(head);
@@ -323,4 +323,4 @@ private:
     int theSize;
 };
 
-#endif // LIST_H
+#endif // DS_CH03_LIST_H

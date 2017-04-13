@@ -1,5 +1,5 @@
-#ifndef HASHTABLE_OAH_H
-#define HASHTABLE_OAH_H
+#ifndef DS_CH05_HASHTABLE_OAH_H
+#define DS_CH05_HASHTABLE_OAH_H
 
 #include <vector>
 #include <xhash>
@@ -35,7 +35,7 @@ public:
     explicit HashTable_OAH(int size) : curSize(0), arr(size) { makeEmpty(); }
     HashTable_OAH(const HashTable_OAH &rhs) { operator=(rhs); }
     ~HashTable_OAH() = default;
-    const HashTable_OAH &operator=(const HashTable_OAH &rhs)
+    HashTable_OAH &operator=(const HashTable_OAH &rhs)
     {
         if (this != &rhs) {
             makeEmpty();
@@ -130,4 +130,4 @@ private:
     int curSize;
 };
 
-#endif //HASHTABLE_OAH_H
+#endif // DS_CH05_HASHTABLE_OAH_H
