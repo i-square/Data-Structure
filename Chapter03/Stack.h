@@ -16,7 +16,7 @@ public:
     LinkStack() : stackSize(0), head(nullptr) { }
     LinkStack(const LinkStack &rhs) : stackSize(0), head(nullptr) { operator=(rhs); }
     ~LinkStack() { clear(); }
-    const LinkStack &operator=(const LinkStack &rhs)
+    LinkStack &operator=(const LinkStack &rhs)
     {
         if (this != &rhs) {
             clear();
@@ -84,7 +84,7 @@ public:
         delete[] theArray;
     }
 
-    const ArrStack &operator=(const ArrStack &rhs)
+    ArrStack &operator=(const ArrStack &rhs)
     {
         if (this != &rhs) {
             delete[] theArray;

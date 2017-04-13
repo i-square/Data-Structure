@@ -20,7 +20,7 @@ public:
     ~LinkQueue() { clear(); }
 
 public:
-    const LinkQueue &operator=(const LinkQueue &rhs)
+    LinkQueue &operator=(const LinkQueue &rhs)
     {
         if (this != &rhs) {
             clear();
@@ -75,7 +75,7 @@ public:
     ~ArrQueue() { clear(); }
 
 public:
-    const ArrQueue &operator=(const ArrQueue &rhs)
+    ArrQueue &operator=(const ArrQueue &rhs)
     {
         if (this != &rhs) {
             clear();

@@ -113,7 +113,7 @@ public:
     ~Set() { clear(); }
 
 public:
-    const Set &operator=(const Set &rhs)
+    Set &operator=(const Set &rhs)
     {
         if (this != &rhs) {
             clear();

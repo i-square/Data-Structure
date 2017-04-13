@@ -24,7 +24,7 @@ public:
         delete[] objects;
     }
 
-    const Vector &operator=(const Vector &rhs)
+    Vector &operator=(const Vector &rhs)
     {
         if (this != &rhs) {
             delete[] objects;

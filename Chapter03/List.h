@@ -117,7 +117,7 @@ public:
         delete tail;
     }
 
-    const List &operator=(const List &rhs)
+    List &operator=(const List &rhs)
     {
         if (this == &rhs)
             return *this;
@@ -231,7 +231,7 @@ public:
     ~SingleList() { eraseList(head); }
 
 public:
-    const SingleList &operator=(const SingleList &rhs)
+    SingleList &operator=(const SingleList &rhs)
     {
         if (this != &rhs) {
             eraseList(head);

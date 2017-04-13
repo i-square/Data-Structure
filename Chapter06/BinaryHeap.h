@@ -22,7 +22,7 @@ public:
     ~BinaryHeap() = default;
     
 public:
-    const BinaryHeap &operator=(const BinaryHeap &rhs)
+    BinaryHeap &operator=(const BinaryHeap &rhs)
     {
         if (this != &rhs) {
             makeEmpty();

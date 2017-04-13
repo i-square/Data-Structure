@@ -23,7 +23,7 @@ public:
     ~BinarySearchTree() { makeEmpty(); }
 
 public:
-    const BinarySearchTree &operator=(const BinarySearchTree &rhs)
+    BinarySearchTree &operator=(const BinarySearchTree &rhs)
     {
         if (this != &rhs) {
             makeEmpty();

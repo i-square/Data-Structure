@@ -25,7 +25,7 @@ public:
     ~AVLTree() { makeEmpty(); }
 
 public:
-    const AVLTree &operator=(const AVLTree &rhs)
+    AVLTree &operator=(const AVLTree &rhs)
     {
         if (this != &rhs) {
             makeEmpty();
