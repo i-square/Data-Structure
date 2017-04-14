@@ -1,5 +1,5 @@
-#ifndef EXERCISE01_H
-#define EXERCISE01_H
+#ifndef DS_CH01_EXERCISE01_H
+#define DS_CH01_EXERCISE01_H
 
 // ex 1.5
 int ones(int n)
@@ -92,4 +92,4 @@ private:
     vector<Comparable> arr;
 };
 
-#endif //EXERCISE01_H
+#endif // DS_CH01_EXERCISE01_H

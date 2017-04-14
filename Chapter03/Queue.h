@@ -1,5 +1,5 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef DS_CH03_QUEUE_H
+#define DS_CH03_QUEUE_H
 
 #include "List.h"
 
@@ -20,7 +20,7 @@ public:
     ~LinkQueue() { clear(); }
 
 public:
-    const LinkQueue &operator=(const LinkQueue &rhs)
+    LinkQueue &operator=(const LinkQueue &rhs)
     {
         if (this != &rhs) {
             clear();
@@ -75,7 +75,7 @@ public:
     ~ArrQueue() { clear(); }
 
 public:
-    const ArrQueue &operator=(const ArrQueue &rhs)
+    ArrQueue &operator=(const ArrQueue &rhs)
     {
         if (this != &rhs) {
             clear();
@@ -117,4 +117,4 @@ private:
     vector<T> theArray;
 };
 
-#endif //QUEUE_H
+#endif // DS_CH03_QUEUE_H

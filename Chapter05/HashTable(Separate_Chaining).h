@@ -1,5 +1,5 @@
-#ifndef HASHTABLE_SC_H
-#define HASHTABLE_SC_H
+#ifndef DS_CH05_HASHTABLE_SC_H
+#define DS_CH05_HASHTABLE_SC_H
 
 #include <vector>
 #include <list>
@@ -25,10 +25,10 @@ class HashTable_SC {
 
 public:
     HashTable_SC() = delete;
-    explicit HashTable_SC(int size = nextPrime(50)) : curSize(0), theLists(size) { makeEmpty(); }
+    explicit HashTable_SC(int size) : curSize(0), theLists(size) { makeEmpty(); }
     HashTable_SC(const HashTable_SC &rhs) { operator=(rhs); }
     ~HashTable_SC() = default;
-    const HashTable_SC &operator=(const HashTable_SC &rhs)
+    HashTable_SC &operator=(const HashTable_SC &rhs)
     {
         if (this != &rhs) {
             makeEmpty();
@@ -109,4 +109,4 @@ private:
     int curSize;
 };
 
-#endif //HASHTABLE_SC_H
+#endif // DS_CH05_HASHTABLE_SC_H

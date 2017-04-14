@@ -1,7 +1,7 @@
-#ifndef VECTOR_H
-#define VECTOR_H
+#ifndef DS_CH03_VECTOR_H
+#define DS_CH03_VECTOR_H
 
-#include <exception>
+#include <stdexcept>
 
 template <typename Object>
 class Vector {
@@ -24,7 +24,7 @@ public:
         delete[] objects;
     }
 
-    const Vector &operator=(const Vector &rhs)
+    Vector &operator=(const Vector &rhs)
     {
         if (this != &rhs) {
             delete[] objects;
@@ -104,4 +104,4 @@ private:
     Object *objects;
 };
 
-#endif // VECTOR_H
+#endif // DS_CH03_VECTOR_H

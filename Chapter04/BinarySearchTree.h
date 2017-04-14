@@ -1,5 +1,5 @@
-#ifndef BINARYSEARCHTREE_H
-#define BINARYSEARCHTREE_H
+#ifndef DS_CH04_BINARYSEARCHTREE_H
+#define DS_CH04_BINARYSEARCHTREE_H
 
 #include <iostream>
 using std::cout;
@@ -23,7 +23,7 @@ public:
     ~BinarySearchTree() { makeEmpty(); }
 
 public:
-    const BinarySearchTree &operator=(const BinarySearchTree &rhs)
+    BinarySearchTree &operator=(const BinarySearchTree &rhs)
     {
         if (this != &rhs) {
             makeEmpty();
@@ -133,4 +133,4 @@ private:
     BinaryNode *root;
 };
 
-#endif //BINARYSEARCHTREE_H
+#endif // DS_CH04_BINARYSEARCHTREE_H

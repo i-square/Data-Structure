@@ -1,5 +1,5 @@
-#ifndef EXAMPLE_H
-#define EXAMPLE_H
+#ifndef DS_CH02_EXAMPLE_H
+#define DS_CH02_EXAMPLE_H
 
 #include <vector>
 using std::vector;
@@ -43,4 +43,4 @@ long pow(long x, int n)
         return pow(x * x, n >> 1);
 }
 
-#endif // EXAMPLE_H
+#endif // DS_CH02_EXAMPLE_H
