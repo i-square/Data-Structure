@@ -5,6 +5,7 @@
 using namespace std;
 
 #include "BinaryHeap.h"
+#include "LeftistHeap.h"
 
 int main()
 {
@@ -16,10 +17,16 @@ int main()
         arr[i] = u(e);
 
     BinaryHeap<int> BHeap(100);
-    for (int i = 0; i < 100; ++i)
+    LeftistHeap<int> LHeap;
+
+    for (int i = 0; i < 100; ++i) {
         BHeap.insert(arr[i]);
+        LHeap.insert(arr[i]);
+    }
 
     cout << "BHeap size: " << BHeap.size() << ", min: " << BHeap.findMin() << endl;
+    cout << "LHeap min: " << LHeap.findMin() << endl;
+    LHeap.printTree();
 
     getchar();
     return 0;

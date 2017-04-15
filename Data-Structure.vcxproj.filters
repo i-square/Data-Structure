@@ -18,6 +18,9 @@
     <ClInclude Include="Chapter06\BinaryHeap.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Chapter06\LeftistHeap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chapter06\test.cpp">
