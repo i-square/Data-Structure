@@ -27,7 +27,7 @@
 :white_check_mark: 哈希表（分离链接法）  
 :white_check_mark: 哈希表（开放定址法/平方探测）  
 ### 第六章 优先队列（堆）
-:white_large_square: 二叉堆  
+:white_check_mark: 二叉堆  
 :white_large_square: 左式堆  
 :white_large_square: 二项队列  
 ### 第七章 排序
