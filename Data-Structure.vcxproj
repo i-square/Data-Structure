@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chapter06\BinaryHeap.h" />
+    <ClInclude Include="Chapter06\LeftistHeap.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chapter06\test.cpp" />

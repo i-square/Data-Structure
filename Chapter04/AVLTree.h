@@ -52,7 +52,7 @@ private:
         if (t == nullptr)
             return nullptr;
 
-        return new AVLNode(t->ele, clone(t->left), clone(t->right));
+        return new AVLNode(t->ele, clone(t->left), clone(t->right), t->height);
     }
     AVLNode *findMin(AVLNode *t) const
     {
