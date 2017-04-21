@@ -16,7 +16,7 @@ using namespace std;
 
 int main()
 {
-    const int maxSize = 100000;
+    const int maxSize = 10000;
     default_random_engine e(static_cast<unsigned int>(time(nullptr)));
     uniform_int_distribution<int> u(1, maxSize);
 
@@ -28,6 +28,7 @@ int main()
         PRINT_SORT_TIME(arr, insertionSort);
     PRINT_SORT_TIME(arr, shellSort);
     PRINT_SORT_TIME(arr, heapSort);
+    PRINT_SORT_TIME(arr, mergeSort);
 
     getchar();
     return 0;
