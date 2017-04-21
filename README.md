@@ -29,11 +29,11 @@
 ### 第六章 优先队列（堆）
 :white_check_mark: 二叉堆  
 :white_check_mark: 左式堆  
-:white_large_square: 二项队列  
+:white_check_mark: 二项队列  
 ### 第七章 排序
-:white_large_square: 插入排序  
-:white_large_square: 希尔排序  
-:white_large_square: 堆排序  
+:white_check_mark: 插入排序  
+:white_check_mark: 希尔排序  
+:white_check_mark: 堆排序  
 :white_large_square: 归并排序  
 :white_large_square: 快速排序  
 ### 第八章 不相交集类
