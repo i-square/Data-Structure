@@ -19,6 +19,21 @@ void insertionSort(vector<T> &a)
     }
 }
 
+template <typename T>
+void insertionSort(vector<T> &a, int left, int right)
+{
+    int j = 0;
+    T tmp;
+
+    for (int p = left + 1; p < right + 1; ++p) {
+        tmp = a[p];
+        for (j = p; j > 0 && tmp < a[j - 1]; --j) {
+            a[j] = a[j - 1];
+        }
+        a[j] = tmp;
+    }
+}
+
 //希尔排序 使用Shell增量
 template <typename T>
 void shellSort(vector<T> &a)
@@ -70,7 +85,7 @@ void heapSort(vector<T> &a)
 
     //deleteMax
     for (int i = static_cast<int>(a.size() - 1); i > 0; --i) {
-        swap(a[0], a[i]);
+        std::swap(a[0], a[i]);
         percolateDown(a, 0, i);
     }
 }
@@ -119,6 +134,81 @@ void mergeSort(vector<T> &a)
 {
     vector<T> tmp(a.size());
     mergeSort(a, tmp, 0, static_cast<int>(a.size() - 1));
+}
+
+//快速排序
+template <typename T>
+const T &median3(vector<T> &a, int left, int right)
+{
+    int center = (left + right) >> 1;
+    if (a[center] < a[left])
+        std::swap(a[left], a[center]);
+    if (a[right] < a[left])
+        std::swap(a[left], a[right]);
+    if (a[right] < a[center])
+        std::swap(a[right], a[center]);
+
+    std::swap(a[center], a[right - 1]);
+    return a[right - 1];
+}
+
+template <typename T>
+void quickSort(vector<T> &a, int left, int right)
+{
+    if (left + 10 <= right) {
+        T pivot = median3(a, left, right);
+
+        int i = left, j = right - 1;
+        for (;;) {
+            while (a[++i] < pivot) {}
+            while (pivot < a[--j]) {}
+            if (i < j)
+                std::swap(a[i], a[j]);
+            else
+                break;
+        }
+
+        std::swap(a[i], a[right - 1]);
+
+        quickSort(a, left, i - 1);
+        quickSort(a, i + 1, right);
+    } else {
+        insertionSort(a, left, right);
+    }
+}
+
+template <typename T>
+void quickSort(vector<T> &a)
+{
+    quickSort(a, 0, static_cast<int>(a.size() - 1));
+}
+
+//快速选择 执行完后第k个最小元是a[k-1]
+template <typename T>
+void quickSelect(vector<T> &a, int left, int right, int k)
+{
+    if (left + 10 <= right) {
+        T pivot = median3(a, left, right);
+
+        int i = left, j = right - 1;
+        for (;;) {
+            while (a[++i] < pivot) {}
+            while (pivot < a[--j]) {}
+            if (i < j)
+                std::swap(a[i], a[j]);
+            else
+                break;
+        }
+
+        std::swap(a[i], a[right - 1]);
+
+        if (k <= i)
+            quickSelect(a, left, i - 1, k);
+        else if (k > i + 1)
+            quickSelect(a, i + 1, right, k);
+    } else {
+        insertionSort(a, left, right);
+    }
 }
 
 #endif // DS_CH07_SORT_H
