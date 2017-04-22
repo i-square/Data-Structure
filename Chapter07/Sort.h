@@ -75,4 +75,50 @@ void heapSort(vector<T> &a)
     }
 }
 
+//归并排序 递归实现
+template <typename T>
+void merge(vector<T> &a, vector<T> &tmp, int leftPos, int rightPos, int rightEnd)
+{
+    //进入这里的时候，A,B均已排序
+    //A的范围[leftPos, leftEnd], B的范围[rightPos, rightEnd]
+    int leftEnd = rightPos - 1;
+    int tmpPos = leftPos;
+    int numElements = rightEnd - leftPos + 1;
+
+    //A,B里的小者放入C 相关下标推进
+    while (leftPos <= leftEnd && rightPos <= rightEnd) {
+        if (a[leftPos] <= a[rightPos])
+            tmp[tmpPos++] = a[leftPos++];
+        else
+            tmp[tmpPos++] = a[rightPos++];
+    }
+
+    while (leftPos <= leftEnd) //拷贝左半边
+        tmp[tmpPos++] = a[leftPos++];
+
+    while (rightPos <= rightEnd) //或者拷贝右半边
+        tmp[tmpPos++] = a[rightPos++];
+
+    for (int i = 0; i < numElements; ++i, --rightEnd)
+        a[rightEnd] = tmp[rightEnd]; //拷贝回去
+}
+
+template <typename T>
+void mergeSort(vector<T> &a, vector<T> &tmp, int left, int right)
+{
+    if (left < right) {
+        int center = (left + right) >> 1;
+        mergeSort(a, tmp, left, center);
+        mergeSort(a, tmp, center + 1, right);
+        merge(a, tmp, left, center + 1, right);
+    }
+}
+
+template <typename T>
+void mergeSort(vector<T> &a)
+{
+    vector<T> tmp(a.size());
+    mergeSort(a, tmp, 0, static_cast<int>(a.size() - 1));
+}
+
 #endif // DS_CH07_SORT_H
