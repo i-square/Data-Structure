@@ -29,6 +29,7 @@ int main()
     PRINT_SORT_TIME(arr, shellSort);
     PRINT_SORT_TIME(arr, heapSort);
     PRINT_SORT_TIME(arr, mergeSort);
+    PRINT_SORT_TIME(arr, mergeSort2);
     PRINT_SORT_TIME(arr, quickSort);
     {
         vector<int> arr1(arr);

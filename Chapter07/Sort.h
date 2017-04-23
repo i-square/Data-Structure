@@ -2,6 +2,7 @@
 #define DS_CH07_SORT_H
 
 #include <vector>
+#include <algorithm>
 
 //插入排序
 template <typename T>
@@ -134,6 +135,25 @@ void mergeSort(vector<T> &a)
 {
     vector<T> tmp(a.size());
     mergeSort(a, tmp, 0, static_cast<int>(a.size() - 1));
+}
+
+//ex 7.16 归并排序的非递归实现
+template <typename T>
+void mergeSort2(vector<T> &a)
+{
+    int n = static_cast<int>(a.size());
+    vector<T> tmp(n);
+    int part1Start = 0, part2Start = 0, part2End = 0;
+
+    for (int subListSize = 1; subListSize < n ; subListSize <<= 1) {
+        part1Start = 0;
+        while (part1Start + subListSize < n - 1) {
+            part2Start = part1Start + subListSize;
+            part2End = std::min(n - 1, part2Start + subListSize - 1);
+            merge(a, tmp, part1Start, part2Start, part2End);
+            part1Start = part2End + 1;
+        }
+    }
 }
 
 //快速排序
