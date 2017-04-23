@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Chapter07\test.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Chapter07\Sort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Chapter07\Timer.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Chapter07\Sort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Chapter07\test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

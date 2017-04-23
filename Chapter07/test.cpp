@@ -29,6 +29,13 @@ int main()
     PRINT_SORT_TIME(arr, shellSort);
     PRINT_SORT_TIME(arr, heapSort);
     PRINT_SORT_TIME(arr, mergeSort);
+    PRINT_SORT_TIME(arr, mergeSort2);
+    PRINT_SORT_TIME(arr, quickSort);
+    {
+        vector<int> arr1(arr);
+        quickSelect(arr1, 0, maxSize - 1, maxSize >> 1);
+        cout << "the median num is: " << arr1[(maxSize >> 1) - 1] << endl;
+    }
 
     getchar();
     return 0;
