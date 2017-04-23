@@ -31,11 +31,12 @@
 :white_check_mark: 左式堆  
 :white_check_mark: 二项队列  
 ### 第七章 排序
-:white_large_square: 插入排序  
-:white_large_square: 希尔排序  
-:white_large_square: 堆排序  
-:white_large_square: 归并排序  
-:white_large_square: 快速排序  
+:white_check_mark: 插入排序  
+:white_check_mark: 希尔排序  
+:white_check_mark: 堆排序  
+:white_check_mark: 归并排序  
+:white_check_mark: 快速排序  
+:white_check_mark: 快速选择  
 ### 第八章 不相交集类
 :white_large_square: 不相交集  
 ### 第九章 图论算法
