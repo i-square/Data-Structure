@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 
-//²åÈëÅÅĞò
+//æ’å…¥æ’åº
 template <typename T>
 void insertionSort(vector<T> &a)
 {
@@ -35,7 +35,7 @@ void insertionSort(vector<T> &a, int left, int right)
     }
 }
 
-//Ï£¶ûÅÅĞò Ê¹ÓÃShellÔöÁ¿
+//å¸Œå°”æ’åº ä½¿ç”¨Shellå¢é‡
 template <typename T>
 void shellSort(vector<T> &a)
 {
@@ -53,7 +53,7 @@ void shellSort(vector<T> &a)
     }
 }
 
-//¶ÑÅÅĞò ²»Ê¹ÓÃ¸½¼ÓÊı×é
+//å †æ’åº ä¸ä½¿ç”¨é™„åŠ æ•°ç»„
 inline int leftChild(int i)
 {
     return (i << 1) + 1;
@@ -66,7 +66,7 @@ void percolateDown(vector<T> &a, int hole, int n)
     T tmp;
     for (tmp = a[hole]; leftChild(hole) < n; hole = child) {
         child = leftChild(hole);
-        //ÏÂÃæifÀïµÄµÚÒ»¸öÅĞ¶Ï±£Ö¤×îºóÒ»¸ö½ÚµãÊÇ×ó¶ù×ÓµÄÇé¿öÏÂµÄÕıÈ·ĞÔ
+        //ä¸‹é¢ifé‡Œçš„ç¬¬ä¸€ä¸ªåˆ¤æ–­ä¿è¯æœ€åä¸€ä¸ªèŠ‚ç‚¹æ˜¯å·¦å„¿å­çš„æƒ…å†µä¸‹çš„æ­£ç¡®æ€§
         if (child != n - 1 && a[child] < a[child + 1])
             ++child;
         if (tmp < a[child])
@@ -91,17 +91,17 @@ void heapSort(vector<T> &a)
     }
 }
 
-//¹é²¢ÅÅĞò µİ¹éÊµÏÖ
+//å½’å¹¶æ’åº é€’å½’å®ç°
 template <typename T>
 void merge(vector<T> &a, vector<T> &tmp, int leftPos, int rightPos, int rightEnd)
 {
-    //½øÈëÕâÀïµÄÊ±ºò£¬A,B¾ùÒÑÅÅĞò
-    //AµÄ·¶Î§[leftPos, leftEnd], BµÄ·¶Î§[rightPos, rightEnd]
+    //è¿›å…¥è¿™é‡Œçš„æ—¶å€™ï¼ŒA,Bå‡å·²æ’åº
+    //Açš„èŒƒå›´[leftPos, leftEnd], Bçš„èŒƒå›´[rightPos, rightEnd]
     int leftEnd = rightPos - 1;
     int tmpPos = leftPos;
     int numElements = rightEnd - leftPos + 1;
 
-    //A,BÀïµÄĞ¡Õß·ÅÈëC Ïà¹ØÏÂ±êÍÆ½ø
+    //A,Bé‡Œçš„å°è€…æ”¾å…¥C ç›¸å…³ä¸‹æ ‡æ¨è¿›
     while (leftPos <= leftEnd && rightPos <= rightEnd) {
         if (a[leftPos] <= a[rightPos])
             tmp[tmpPos++] = a[leftPos++];
@@ -109,14 +109,14 @@ void merge(vector<T> &a, vector<T> &tmp, int leftPos, int rightPos, int rightEnd
             tmp[tmpPos++] = a[rightPos++];
     }
 
-    while (leftPos <= leftEnd) //¿½±´×ó°ë±ß
+    while (leftPos <= leftEnd) //æ‹·è´å·¦åŠè¾¹
         tmp[tmpPos++] = a[leftPos++];
 
-    while (rightPos <= rightEnd) //»òÕß¿½±´ÓÒ°ë±ß
+    while (rightPos <= rightEnd) //æˆ–è€…æ‹·è´å³åŠè¾¹
         tmp[tmpPos++] = a[rightPos++];
 
     for (int i = 0; i < numElements; ++i, --rightEnd)
-        a[rightEnd] = tmp[rightEnd]; //¿½±´»ØÈ¥
+        a[rightEnd] = tmp[rightEnd]; //æ‹·è´å›å»
 }
 
 template <typename T>
@@ -137,7 +137,7 @@ void mergeSort(vector<T> &a)
     mergeSort(a, tmp, 0, static_cast<int>(a.size() - 1));
 }
 
-//ex 7.16 ¹é²¢ÅÅĞòµÄ·Çµİ¹éÊµÏÖ
+//ex 7.16 å½’å¹¶æ’åºçš„éé€’å½’å®ç°
 template <typename T>
 void mergeSort2(vector<T> &a)
 {
@@ -156,7 +156,7 @@ void mergeSort2(vector<T> &a)
     }
 }
 
-//¿ìËÙÅÅĞò
+//å¿«é€Ÿæ’åº
 template <typename T>
 const T &median3(vector<T> &a, int left, int right)
 {
@@ -203,7 +203,7 @@ void quickSort(vector<T> &a)
     quickSort(a, 0, static_cast<int>(a.size() - 1));
 }
 
-//¿ìËÙÑ¡Ôñ Ö´ĞĞÍêºóµÚk¸ö×îĞ¡ÔªÊÇa[k-1]
+//å¿«é€Ÿé€‰æ‹© æ‰§è¡Œå®Œåç¬¬kä¸ªæœ€å°å…ƒæ˜¯a[k-1]
 template <typename T>
 void quickSelect(vector<T> &a, int left, int right, int k)
 {

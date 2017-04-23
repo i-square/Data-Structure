@@ -65,7 +65,7 @@ public:
     const T &findMin() const
     {
         if (empty())
-            throw std::underflow_error("¿Õ¶şÏî¶ÓÁĞ");
+            throw std::underflow_error("ç©ºäºŒé¡¹é˜Ÿåˆ—");
         return theTrees[findMinIndex()]->element;
     }
 
@@ -76,14 +76,14 @@ public:
     void deleteMin()
     {
         if (empty())
-            throw std::underflow_error("¿Õ¶şÏî¶ÓÁĞ");
+            throw std::underflow_error("ç©ºäºŒé¡¹é˜Ÿåˆ—");
 
         int minIndex = findMinIndex();
         BinomialNode *oldRoot = theTrees[minIndex];
         BinomialNode *deletedTree = oldRoot->leftChild;
         delete oldRoot;
 
-        // H'' ³¤¶ÈÊÇminËùÔÚtree - 1£¨È¥µômin£©
+        // H'' é•¿åº¦æ˜¯minæ‰€åœ¨tree - 1ï¼ˆå»æ‰minï¼‰
         BinomialQueue deletedQueue;
         deletedQueue.theTrees.resize(minIndex + 1);
         deletedQueue.curSize = (1 << minIndex) - 1;
@@ -93,7 +93,7 @@ public:
             deletedQueue.theTrees[j]->nextSibling = nullptr;
         }
 
-        // H' sizeÊÇÈ¥µôH''ºÍmin
+        // H' sizeæ˜¯å»æ‰H''å’Œmin
         theTrees[minIndex] = nullptr;
         curSize -= deletedQueue.curSize + 1;
 
@@ -102,7 +102,7 @@ public:
     void deleteMin(T &minItem)
     {
         if (empty())
-            throw std::underflow_error("¿Õ¶şÏî¶ÓÁĞ");
+            throw std::underflow_error("ç©ºäºŒé¡¹é˜Ÿåˆ—");
 
         int minIndex = findMinIndex();
         minItem = theTrees[minIndex]->element;
@@ -111,7 +111,7 @@ public:
         BinomialNode *deletedTree = oldRoot->leftChild;
         delete oldRoot;
 
-        // H'' ³¤¶ÈÊÇminËùÔÚtree - 1£¨È¥µômin£©
+        // H'' é•¿åº¦æ˜¯minæ‰€åœ¨tree - 1ï¼ˆå»æ‰minï¼‰
         BinomialQueue deletedQueue;
         deletedQueue.theTrees.resize(minIndex + 1);
         deletedQueue.curSize = (1 << minIndex) - 1;
@@ -121,7 +121,7 @@ public:
             deletedQueue.theTrees[j]->nextSibling = nullptr;
         }
 
-        // H' sizeÊÇÈ¥µôH''ºÍmin
+        // H' sizeæ˜¯å»æ‰H''å’Œmin
         theTrees[minIndex] = nullptr;
         curSize -= deletedQueue.curSize + 1;
 
@@ -150,7 +150,7 @@ public:
                 theTrees[i] = nullptr;
         }
 
-        BinomialNode *carry = nullptr; //ÓÃÀ´½øÎ»
+        BinomialNode *carry = nullptr; //ç”¨æ¥è¿›ä½
         for (int i = 0, j = 1; j <= curSize; ++i, j <<= 1) {
             BinomialNode *t1 = theTrees[i];
             BinomialNode *t2 = i < rhs.theTrees.size() ? rhs.theTrees[i] : nullptr;
@@ -160,29 +160,29 @@ public:
             whichCase += carry == nullptr ? 0 : 4;
 
             switch (whichCase) {
-            case 0: //¿ÕÊ÷
-            case 1: //rhs¿Õ
+            case 0: //ç©ºæ ‘
+            case 1: //rhsç©º
                 break;
-            case 2: //this¿Õ
+            case 2: //thisç©º
                 theTrees[i] = t2;
                 break;
-            case 4: //Ö»ÓĞcarry
+            case 4: //åªæœ‰carry
                 theTrees[i] = carry;
                 carry = nullptr;
                 break;
-            case 3: //thisºÍrhs
+            case 3: //thiså’Œrhs
                 carry = combineTrees(t1, t2);
                 theTrees[i] = rhs.theTrees[i] = nullptr;
                 break;
-            case 5: //thisºÍcarry
+            case 5: //thiså’Œcarry
                 carry = combineTrees(t1, carry);
                 theTrees[i] = nullptr;
                 break;
-            case 6: //rhsºÍcarry
+            case 6: //rhså’Œcarry
                 carry = combineTrees(t2, carry);
                 rhs.theTrees[i] = nullptr;
                 break;
-            case 7: //¶¼ÓĞ
+            case 7: //éƒ½æœ‰
                 theTrees[i] = carry;
                 carry = combineTrees(t1, t2);
                 rhs.theTrees[i] = nullptr;
@@ -205,7 +205,7 @@ private:
         if (t == nullptr)
             return; // do nothing
         printTree(t->leftChild, depth + 1);
-        printDepth(t->element, depth); //Õâ¾ä·ÅµÄÎ»ÖÃ¾ö¶¨ÁËÇ°ÖĞºóĞò±éÀú
+        printDepth(t->element, depth); //è¿™å¥æ”¾çš„ä½ç½®å†³å®šäº†å‰ä¸­ååºéå†
         printTree(t->nextSibling, depth + 1);
     }
     void init()
@@ -254,7 +254,7 @@ private:
 
 private:
     int curSize;
-    vector<BinomialNode *> theTrees; //Èô13¸öÔªËØ£¬ÔòtheTreesÀïÊÇ[0 0 0 0 1 1 0 1]´æ´¢
+    vector<BinomialNode *> theTrees; //è‹¥13ä¸ªå…ƒç´ ï¼Œåˆ™theTreesé‡Œæ˜¯[0 0 0 0 1 1 0 1]å­˜å‚¨
 };
 
 #endif // DS_CH06_BINOMIALQUEUE_H

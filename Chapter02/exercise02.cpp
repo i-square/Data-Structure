@@ -14,10 +14,10 @@ int main()
         arr.push_back(temp);
     }
 
-    cout << "×îĞ¡Á¬Ğø×ÓĞòÁĞºÍ: " << minSubSum(arr) << endl;
+    cout << "æœ€å°è¿ç»­å­åºåˆ—å’Œ: " << minSubSum(arr) << endl;
     
     i = maxSubSum(arr);
-    cout << "×î´óÁ¬Ğø×ÓĞòÁĞºÍ: " << i.Sum << ", ÆğÊ¼ÏÂ±ê: " << i.begin << ", ½áÊøÏÂ±ê: " << i.end << endl;
-    
+    cout << "æœ€å¤§è¿ç»­å­åºåˆ—å’Œ: " << i.Sum << ", èµ·å§‹ä¸‹æ ‡: " << i.begin << ", ç»“æŸä¸‹æ ‡: " << i.end << endl;
+     
     return 0;
 }

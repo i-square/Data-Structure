@@ -24,7 +24,7 @@ int main()
 
     cout << "max: " << BSTree.findMax() << endl;
     cout << "min: " << BSTree.findMin() << endl;
-    cout << "ÊÇ·ñ°üº¬5£¿ " << boolalpha << BSTree.contains(5) << endl;
+    cout << "æ˜¯å¦åŒ…å«5 ? " << boolalpha << BSTree.contains(5) << endl;
     BSTree.printTree();
     cout << endl << endl << endl;
 

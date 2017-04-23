@@ -11,7 +11,7 @@ using namespace std;
     vector<int> arrt(A);\
     Timer ts;\
     sortfun(arrt);\
-    cout << #sortfun##" " << maxSize << " 个随机数用时: " << ts.stop_delta<Timer::ms>() << " ms" << endl;\
+    cout << #sortfun##" " << maxSize << " 涓殢鏈烘暟鐢ㄦ椂: " << ts.stop_delta<Timer::ms>() << " ms" << endl;\
 }
 
 int main()

@@ -25,7 +25,7 @@ int main()
 
     cout << "queue: ";
     for (int i = 0; i < 20; ++i)
-        cout << que.dequeue() << "¡ú";
+        cout << que.dequeue() << "â†’";
     cout << endl;
 
     cout << "single list: ";

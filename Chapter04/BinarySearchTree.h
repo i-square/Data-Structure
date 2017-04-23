@@ -32,8 +32,8 @@ public:
         return *this;
     }
 
-    const T &findMin() const { return findMin(root)->ele; } //Ó¦±£Ö¤·Ç¿Õµ÷ÓÃ
-    const T &findMax() const { return findMax(root)->ele; } //Ó¦±£Ö¤·Ç¿Õµ÷ÓÃ
+    const T &findMin() const { return findMin(root)->ele; } //åº”ä¿è¯éžç©ºè°ƒç”¨
+    const T &findMax() const { return findMax(root)->ele; } //åº”ä¿è¯éžç©ºè°ƒç”¨
     bool contains(const T &x) const { return contains(x, root); }
     bool empty() const { return root == nullptr; }
     void printTree() const { printTree(root); }
@@ -88,7 +88,7 @@ private:
         if (t == nullptr)
             return; // do nothing
         printTree(t->left, depth + 1);
-        printDepth(t->ele, depth); //Õâ¾ä·ÅµÄÎ»ÖÃ¾ö¶¨ÁËÇ°ÖÐºóÐò±éÀú
+        printDepth(t->ele, depth); //è¿™å¥æ”¾çš„ä½ç½®å†³å®šäº†å‰ä¸­åŽåºéåŽ†
         printTree(t->right, depth + 1);
     }
     void makeEmpty(BinaryNode *&t)
@@ -120,8 +120,8 @@ private:
         else if (t->ele < x)
             remove(x, t->right);
         else if (t->left != nullptr && t->right != nullptr) { //2 children
-            t->ele = findMin(t->right)->ele; //ÓÃÓÒ×ÓÊ÷µÄ×îÐ¡ÖµÌæ´úµ±Ç°Öµ
-            remove(t->ele, t->right); //É¾µôÓÒ×ÓÊ÷µÄ×îÐ¡Öµ
+            t->ele = findMin(t->right)->ele; //ç”¨å³å­æ ‘çš„æœ€å°å€¼æ›¿ä»£å½“å‰å€¼
+            remove(t->ele, t->right); //åˆ æŽ‰å³å­æ ‘çš„æœ€å°å€¼
         } else {
             BinaryNode *old = t;
             t = (t->left != nullptr) ? t->left : t->right;

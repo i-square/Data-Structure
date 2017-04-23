@@ -1,7 +1,7 @@
 #ifndef DS_CH04_EXERCISE04_H
 #define DS_CH04_EXERCISE04_H
 
-//ex4.11 Î´¿¼ÂÇend()ÈçºÎÊµÏÖ
+//ex4.11 æœªè€ƒè™‘end()å¦‚ä½•å®žçŽ°
 template <typename T>
 class Set {
 private:
@@ -28,12 +28,12 @@ public:
         const_iterator &operator++()
         {
             BinaryNode *t;
-            if (current->right) { //Èô´æÔÚÓÒ¶ù×Ó£¬ÔòÏÂÒ»¸öÊÇÓÒ×ÓÊ÷µÄ×îÐ¡Öµ
+            if (current->right) { //è‹¥å­˜åœ¨å³å„¿å­ï¼Œåˆ™ä¸‹ä¸€ä¸ªæ˜¯å³å­æ ‘çš„æœ€å°å€¼
                 t = current->right;
                 while (t->left != nullptr)
                     t = t->left;
                 current = t;
-            } else { //·ñÔòÉÏËÝ£¬Èô±¾ÉíÊÇÓÒ¶ù×ÓÔò³ÖÐøÉÏËÝ
+            } else { //å¦åˆ™ä¸Šæº¯ï¼Œè‹¥æœ¬èº«æ˜¯å³å„¿å­åˆ™æŒç»­ä¸Šæº¯
                 t = current->parent;
                 while (t != nullptr && t->ele < current->ele)
                     t = t->parent;
@@ -74,12 +74,12 @@ public:
         iterator &operator++()
         {
             BinaryNode *t;
-            if (current->right) { //Èô´æÔÚÓÒ¶ù×Ó£¬ÔòÏÂÒ»¸öÊÇÓÒ×ÓÊ÷µÄ×îÐ¡Öµ
+            if (current->right) { //è‹¥å­˜åœ¨å³å„¿å­ï¼Œåˆ™ä¸‹ä¸€ä¸ªæ˜¯å³å­æ ‘çš„æœ€å°å€¼
                 t = current->right;
                 while (t->left != nullptr)
                     t = t->left;
                 current = t;
-            } else { //·ñÔòÉÏËÝ£¬Èô±¾ÉíÊÇÓÒ¶ù×ÓÔò³ÖÐøÉÏËÝ
+            } else { //å¦åˆ™ä¸Šæº¯ï¼Œè‹¥æœ¬èº«æ˜¯å³å„¿å­åˆ™æŒç»­ä¸Šæº¯
                 t = current->parent;
                 while (t != nullptr && t->ele < current->ele)
                     t = t->parent;
@@ -190,8 +190,8 @@ private:
             BinaryNode *tmp = t->right;
             while (tmp->left != nullptr)
                 tmp = tmp->left;
-            t->ele = tmp->ele; //ÓÃÓÒ×ÓÊ÷µÄ×îÐ¡ÖµÌæ´úµ±Ç°Öµ
-            erase(t->ele, t->right); //É¾µôÓÒ×ÓÊ÷µÄ×îÐ¡Öµ
+            t->ele = tmp->ele; //ç”¨å³å­æ ‘çš„æœ€å°å€¼æ›¿ä»£å½“å‰å€¼
+            erase(t->ele, t->right); //åˆ æŽ‰å³å­æ ‘çš„æœ€å°å€¼
         } else {
             BinaryNode *old = t;
             t = (t->left != nullptr) ? t->left : t->right;

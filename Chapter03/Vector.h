@@ -62,7 +62,7 @@ public:
 
     Object &operator[](int index)
     {
-        // ex3.7 Ìí¼Ó±ß½ç¼ì²â
+        // ex3.7 æ·»åŠ è¾¹ç•Œæ£€æµ‹
         if (index >= 0 && index < size())
             return objects[index];
         else
@@ -70,7 +70,7 @@ public:
     }
     const Object &operator[](int index) const
     {
-        // ex3.7 Ìí¼Ó±ß½ç¼ì²â
+        // ex3.7 æ·»åŠ è¾¹ç•Œæ£€æµ‹
         if (index >= 0 && index < size())
             return objects[index];
         else

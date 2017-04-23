@@ -4,7 +4,7 @@
 #include <vector>
 #include <xhash>
 
-//Æ½·½Ì½²â
+//å¹³æ–¹æŽ¢æµ‹
 template <typename T>
 class HashTable_OAH {
     enum EntryType { ACTIVE, EMPTY, DELETED };
@@ -95,8 +95,8 @@ private:
 
         while (arr[curPos].info != EMPTY &&
             arr[curPos].ele != x) {
-            //Æ½·½Ì½²âµÄ¿ìËÙ·½·¨
-            //ÓÉ f(i) = f(i-1) + 2i - 1 ÍÆµÃ
+            //å¹³æ–¹æŽ¢æµ‹çš„å¿«é€Ÿæ–¹æ³•
+            //ç”± f(i) = f(i-1) + 2i - 1 æŽ¨å¾—
             curPos += offset;
             offset += 2;
             if (curPos >= arr.size())

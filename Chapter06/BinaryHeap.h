@@ -40,7 +40,7 @@ public:
     const T &findMin() const
     {
         if (empty())
-            throw std::underflow_error("µ±Ç°¶ÑÎª¿Õ");
+            throw std::underflow_error("å½“å‰å †ä¸ºç©º");
         return arr[1];
     }
     
@@ -51,7 +51,7 @@ public:
 
         //percolateUp
         int hole = ++curSize;
-        //ÕâÑùµÄ²Ù×÷±ÜÃâÁË½»»»£¬Ö»ĞèÌæ»»
+        //è¿™æ ·çš„æ“ä½œé¿å…äº†äº¤æ¢ï¼Œåªéœ€æ›¿æ¢
         for (; hole > 1 && x < arr[hole >> 1]; hole >>= 1)
             arr[hole] = arr[hole >> 1];
 
@@ -60,15 +60,15 @@ public:
     void deleteMin()
     {
         if (empty())
-            throw std::underflow_error("µ±Ç°¶ÑÎª¿Õ");
+            throw std::underflow_error("å½“å‰å †ä¸ºç©º");
 
         arr[1] = arr[curSize--];
         percolateDown(1);
     }
-    void deleteMin(T &minItem) //É¾³ımin²¢½«minÖµ·µ»Ø¸øminItem
+    void deleteMin(T &minItem) //åˆ é™¤minå¹¶å°†minå€¼è¿”å›ç»™minItem
     {
         if (empty())
-            throw std::underflow_error("µ±Ç°¶ÑÎª¿Õ");
+            throw std::underflow_error("å½“å‰å †ä¸ºç©º");
 
         minItem = arr[1];
         arr[1] = arr[curSize--];
@@ -87,7 +87,7 @@ private:
         int child = 0;
         T tmp = arr[hole];
         for (; (child = hole << 1) <= curSize; hole = child) {
-            //ÏÂÃæifÀïµÄµÚÒ»¸öÅĞ¶Ï±£Ö¤×îºóÒ»¸ö½ÚµãÊÇ×ó¶ù×ÓµÄÇé¿öÏÂµÄÕıÈ·ĞÔ
+            //ä¸‹é¢ifé‡Œçš„ç¬¬ä¸€ä¸ªåˆ¤æ–­ä¿è¯æœ€åä¸€ä¸ªèŠ‚ç‚¹æ˜¯å·¦å„¿å­çš„æƒ…å†µä¸‹çš„æ­£ç¡®æ€§
             if (child != curSize && arr[child + 1] < arr[child])
                 ++child;
             if (arr[child] < tmp)

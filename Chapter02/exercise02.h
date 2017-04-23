@@ -5,7 +5,7 @@
 using std::vector;
 
 //2.17
-//a.Çó×îĞ¡Á¬Ğø×ÓĞòÁĞºÍ  O(N)Ëã·¨
+//a.æ±‚æœ€å°è¿ç»­å­åºåˆ—å’Œ  O(N)ç®—æ³•
 int minSubSum(const vector<int> &a)
 {
     int minSum = 0, thisSum = 0;
@@ -20,7 +20,7 @@ int minSubSum(const vector<int> &a)
 }
 
 //2.19
-//·µ»Ø×î´óÁ¬Ğø×ÓĞòÁĞºÍÒÔ¼°¶ÔÓ¦µÄÏÂ±ê
+//è¿”å›æœ€å¤§è¿ç»­å­åºåˆ—å’Œä»¥åŠå¯¹åº”çš„ä¸‹æ ‡
 struct maxInfo {
     maxInfo() = default;
     int Sum;

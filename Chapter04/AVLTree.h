@@ -34,8 +34,8 @@ public:
         return *this;
     }
 
-    const T &findMin() const { return findMin(root)->ele; } //Ó¦±£Ö¤·Ç¿Õµ÷ÓÃ
-    const T &findMax() const { return findMax(root)->ele; } //Ó¦±£Ö¤·Ç¿Õµ÷ÓÃ
+    const T &findMin() const { return findMin(root)->ele; } //åº”ä¿è¯éžç©ºè°ƒç”¨
+    const T &findMax() const { return findMax(root)->ele; } //åº”ä¿è¯éžç©ºè°ƒç”¨
     bool contains(const T &x) { return contains(x, root); }
     bool empty() const { return root == nullptr; }
     void printTree() const { printTree(root); }
@@ -92,7 +92,7 @@ private:
         if (t == nullptr)
             return; // do nothing
         printTree(t->left, depth + 1);
-        printDepth(t->ele, depth); //Õâ¾ä·ÅµÄÎ»ÖÃ¾ö¶¨ÁËÇ°ÖÐºóÐò±éÀú
+        printDepth(t->ele, depth); //è¿™å¥æ”¾çš„ä½ç½®å†³å®šäº†å‰ä¸­åŽåºéåŽ†
         printTree(t->right, depth + 1);
     }
     void makeEmpty(AVLNode *&t)
@@ -105,7 +105,7 @@ private:
         t = nullptr;
     }
 
-    // Õë¶ÔÇé¿ö1×ó×ó£¬½ÚµãºÍ×ó¶ù×ÓÒ»ÆðË³Ê±ÕëÐý×ª
+    // é’ˆå¯¹æƒ…å†µ1å·¦å·¦ï¼ŒèŠ‚ç‚¹å’Œå·¦å„¿å­ä¸€èµ·é¡ºæ—¶é’ˆæ—‹è½¬
     void rotateWithLeft(AVLNode *&k2)
     {
         AVLNode *k1 = k2->left;
@@ -113,11 +113,11 @@ private:
         k1->right = k2;
 
         k2->height = max(height(k2->left), height(k2->right)) + 1;
-        k1->height = max(height(k1->left), k2->height) + 1; // ÓÒ×ÓÊ÷¸ß¶È¾ÍÊÇk2µÄ¸ß¶È
+        k1->height = max(height(k1->left), k2->height) + 1; // å³å­æ ‘é«˜åº¦å°±æ˜¯k2çš„é«˜åº¦
 
-        k2 = k1; // ±£Ö¤ÉÏÒ»²ã½ÚµãÁ´½Óµ½Ðý×ªºóµÄ½Úµã
+        k2 = k1; // ä¿è¯ä¸Šä¸€å±‚èŠ‚ç‚¹é“¾æŽ¥åˆ°æ—‹è½¬åŽçš„èŠ‚ç‚¹
     }
-    // Õë¶ÔÇé¿ö4ÓÒÓÒ£¬½ÚµãºÍÓÒ¶ù×ÓÒ»ÆðÄæÊ±ÕëÐý×ª
+    // é’ˆå¯¹æƒ…å†µ4å³å³ï¼ŒèŠ‚ç‚¹å’Œå³å„¿å­ä¸€èµ·é€†æ—¶é’ˆæ—‹è½¬
     void rotateWithRight(AVLNode *&k1)
     {
         AVLNode *k2 = k1->right;
@@ -125,18 +125,18 @@ private:
         k2->left = k1;
 
         k1->height = max(height(k1->left), height(k1->right)) + 1;
-        k2->height = max(k1->height, height(k2->right)) + 1; // ×ó×ÓÊ÷¸ß¶È¾ÍÊÇk2µÄ¸ß¶È
+        k2->height = max(k1->height, height(k2->right)) + 1; // å·¦å­æ ‘é«˜åº¦å°±æ˜¯k2çš„é«˜åº¦
 
-        k1 = k2; // ±£Ö¤ÉÏÒ»²ã½ÚµãÁ´½Óµ½Ðý×ªºóµÄ½Úµã
+        k1 = k2; // ä¿è¯ä¸Šä¸€å±‚èŠ‚ç‚¹é“¾æŽ¥åˆ°æ—‹è½¬åŽçš„èŠ‚ç‚¹
     }
-    // Õë¶ÔÇé¿ö2×óÓÒ£¬½ÚµãµÄ×ó¶ù×ÓÏÈÄæÊ±ÕëÐý×ª£¬½Ó×Å½ÚµãË³Ê±ÕëÐý×ª
+    // é’ˆå¯¹æƒ…å†µ2å·¦å³ï¼ŒèŠ‚ç‚¹çš„å·¦å„¿å­å…ˆé€†æ—¶é’ˆæ—‹è½¬ï¼ŒæŽ¥ç€èŠ‚ç‚¹é¡ºæ—¶é’ˆæ—‹è½¬
     void doubleRotateWithLeft(AVLNode *&k3)
     {
         //rotateWithRight(k3->left);
         //rotateWithLeft(k3);
 
-        //ex 3.26 ±àÐ´Ò»¸öË«Ðý×ª£¬Ð§ÂÊ¸ßÓÚÁ½´Îµ¥Ðý×ª
-        //·ÖÎöÐý×ª¹ý³Ì²»ÄÑ×Ü½á³öÀ´
+        //ex 3.26 ç¼–å†™ä¸€ä¸ªåŒæ—‹è½¬ï¼Œæ•ˆçŽ‡é«˜äºŽä¸¤æ¬¡å•æ—‹è½¬
+        //åˆ†æžæ—‹è½¬è¿‡ç¨‹ä¸éš¾æ€»ç»“å‡ºæ¥
         AVLNode *k1 = k3->left;
         AVLNode *k2 = k1->right;
 
@@ -149,16 +149,16 @@ private:
         k3->height = max(height(k3->left), height(k3->right)) + 1;
         k2->height = max(k1->height, k3->height) + 1;
 
-        k3 = k2; // ±£Ö¤ÉÏÒ»²ã½ÚµãÁ´½Óµ½Ðý×ªºóµÄ½Úµã
+        k3 = k2; // ä¿è¯ä¸Šä¸€å±‚èŠ‚ç‚¹é“¾æŽ¥åˆ°æ—‹è½¬åŽçš„èŠ‚ç‚¹
     }
-    // Õë¶ÔÇé¿ö3ÓÒ×ó£¬½ÚµãµÄÓÒ¶ù×ÓÏÈË³Ê±ÕëÐý×ª£¬½Ó×Å½ÚµãÄæÊ±ÕëÐý×ª
+    // é’ˆå¯¹æƒ…å†µ3å³å·¦ï¼ŒèŠ‚ç‚¹çš„å³å„¿å­å…ˆé¡ºæ—¶é’ˆæ—‹è½¬ï¼ŒæŽ¥ç€èŠ‚ç‚¹é€†æ—¶é’ˆæ—‹è½¬
     void doubleRotateWithRight(AVLNode *&k1) 
     {
         //rotateWithLeft(k3->right);
         //rotateWithRight(k3);
 
-        //ex 3.26 ±àÐ´Ò»¸öË«Ðý×ª£¬Ð§ÂÊ¸ßÓÚÁ½´Îµ¥Ðý×ª
-        //·ÖÎöÐý×ª¹ý³Ì²»ÄÑ×Ü½á³öÀ´
+        //ex 3.26 ç¼–å†™ä¸€ä¸ªåŒæ—‹è½¬ï¼Œæ•ˆçŽ‡é«˜äºŽä¸¤æ¬¡å•æ—‹è½¬
+        //åˆ†æžæ—‹è½¬è¿‡ç¨‹ä¸éš¾æ€»ç»“å‡ºæ¥
         AVLNode *k3 = k1->right;
         AVLNode *k2 = k3->left;
 
@@ -171,7 +171,7 @@ private:
         k3->height = max(height(k3->left), height(k3->right)) + 1;
         k2->height = max(k1->height, k3->height) + 1;
 
-        k1 = k2; // ±£Ö¤ÉÏÒ»²ã½ÚµãÁ´½Óµ½Ðý×ªºóµÄ½Úµã
+        k1 = k2; // ä¿è¯ä¸Šä¸€å±‚èŠ‚ç‚¹é“¾æŽ¥åˆ°æ—‹è½¬åŽçš„èŠ‚ç‚¹
     }
 
     void insert(const T &x, AVLNode *&t)
@@ -199,10 +199,10 @@ private:
         t->height = max(height(t->left), height(t->right)) + 1;
     }
 
-    //AVLTreeÉ¾³ý½ÚµãµÄË¼Â·:
-    //1.Ïñ¶þ²æ²éÕÒÊ÷Ò»ÑùÉ¾³ý½Úµã
-    //2.ÖØÐÂ¼ÆËã½Úµã¸ß¶È
-    //3.¼ì²éÊÇ·ñÂú×ãÆ½ºâÌõ¼þ£¬²»Âú×ãÐèÒªµ÷Õû
+    //AVLTreeåˆ é™¤èŠ‚ç‚¹çš„æ€è·¯:
+    //1.åƒäºŒå‰æŸ¥æ‰¾æ ‘ä¸€æ ·åˆ é™¤èŠ‚ç‚¹
+    //2.é‡æ–°è®¡ç®—èŠ‚ç‚¹é«˜åº¦
+    //3.æ£€æŸ¥æ˜¯å¦æ»¡è¶³å¹³è¡¡æ¡ä»¶ï¼Œä¸æ»¡è¶³éœ€è¦è°ƒæ•´
     void remove(const T &x, AVLNode *&t)
     {
         if (t == nullptr)
@@ -212,7 +212,7 @@ private:
 
             t->height = std::max(height(t->left), height(t->right)) + 1;
 
-            //É¾ÁË×ó×ÓÊ÷Ò»¸ö½Úµã£¬ÐèÒªÅÐ¶ÏÓÒ£¾×ó
+            //åˆ äº†å·¦å­æ ‘ä¸€ä¸ªèŠ‚ç‚¹ï¼Œéœ€è¦åˆ¤æ–­å³ï¼žå·¦
             if (height(t->right) - height(t->left) == 2) {
                 if (height(t->right->right) >= height(t->right->left))
                     rotateWithRight(t);
@@ -224,7 +224,7 @@ private:
 
             t->height = std::max(height(t->left), height(t->right)) + 1;
 
-            //É¾ÁËÓÒ×ÓÊ÷Ò»¸ö½Úµã£¬ÐèÒªÅÐ¶Ï×ó£¾ÓÒ
+            //åˆ äº†å³å­æ ‘ä¸€ä¸ªèŠ‚ç‚¹ï¼Œéœ€è¦åˆ¤æ–­å·¦ï¼žå³
             if (height(t->left) - height(t->right) == 2) {
                 if (height(t->left->left) >= height(t->left->right))
                     rotateWithLeft(t);
@@ -232,12 +232,12 @@ private:
                     doubleRotateWithLeft(t);
             }
         } else if (t->left != nullptr && t->right != nullptr) { //2 children
-            t->ele = findMin(t->right)->ele; //ÓÃÓÒ×ÓÊ÷µÄ×îÐ¡ÖµÌæ´úµ±Ç°Öµ
-            remove(t->ele, t->right); //É¾µôÓÒ×ÓÊ÷µÄ×îÐ¡Öµ
+            t->ele = findMin(t->right)->ele; //ç”¨å³å­æ ‘çš„æœ€å°å€¼æ›¿ä»£å½“å‰å€¼
+            remove(t->ele, t->right); //åˆ æŽ‰å³å­æ ‘çš„æœ€å°å€¼
 
             t->height = std::max(height(t->left), height(t->right)) + 1;
 
-            //É¾ÁËÓÒ×ÓÊ÷Ò»¸ö½Úµã£¬ÐèÒªÅÐ¶Ï×ó£¾ÓÒ
+            //åˆ äº†å³å­æ ‘ä¸€ä¸ªèŠ‚ç‚¹ï¼Œéœ€è¦åˆ¤æ–­å·¦ï¼žå³
             if (height(t->left) - height(t->right) == 2) {
                 if (height(t->left->left) >= height(t->left->right))
                     rotateWithLeft(t);

@@ -35,19 +35,19 @@ public:
     }
 
     bool empty() const { return root == nullptr; }
-    const T &findMin() const { return root->ele; } //Ó¦±£Ö¤·Ç¿Õµ÷ÓÃ
+    const T &findMin() const { return root->ele; } //åº”ä¿è¯éžç©ºè°ƒç”¨
 
     void printTree() const { printTree(root); }
-    //²åÈë¿ÉÒÔ¿´³ÉÊÇºÏ²¢Ò»¸öµ¥½Úµã¶Ñ£¬Ê±¼ä½çÒ²ÊÇO(logN)
+    //æ’å…¥å¯ä»¥çœ‹æˆæ˜¯åˆå¹¶ä¸€ä¸ªå•èŠ‚ç‚¹å †ï¼Œæ—¶é—´ç•Œä¹Ÿæ˜¯O(logN)
     void insert(const T &x)
     {
         root = merge(new LeftistNode(x), root);
     }
-    //É¾³ý¿ÉÒÔ¿´³ÉÊÇÉ¾³ý¸ù½áµã£¬ÔÙºÏ²¢×óÓÒ×ÓÊ÷£¬Ê±¼ä½çÒ²ÊÇO(logN)
+    //åˆ é™¤å¯ä»¥çœ‹æˆæ˜¯åˆ é™¤æ ¹ç»“ç‚¹ï¼Œå†åˆå¹¶å·¦å³å­æ ‘ï¼Œæ—¶é—´ç•Œä¹Ÿæ˜¯O(logN)
     void deleteMin()
     {
         if (empty())
-            throw std::underflow_error("µ±Ç°¶ÑÎª¿Õ");
+            throw std::underflow_error("å½“å‰å †ä¸ºç©º");
 
         LeftistNode *oldRoot = root;
         root = merge(root->left, root->right);
@@ -59,7 +59,7 @@ public:
         deleteMin();
     }
     void makeEmpty() { makeEmpty(root); }
-    //ºÏ²¢Á½¸ö¶ÑµÄÊ±¼ä½çÎªO(logN)
+    //åˆå¹¶ä¸¤ä¸ªå †çš„æ—¶é—´ç•Œä¸ºO(logN)
     void merge(LeftistHeap &rhs)
     {
         if (this != &rhs) {
@@ -80,7 +80,7 @@ private:
         if (t == nullptr)
             return; // do nothing
         printTree(t->left, depth + 1);
-        printDepth(t->ele, depth); //Õâ¾ä·ÅµÄÎ»ÖÃ¾ö¶¨ÁËÇ°ÖÐºóÐò±éÀú
+        printDepth(t->ele, depth); //è¿™å¥æ”¾çš„ä½ç½®å†³å®šäº†å‰ä¸­åŽåºéåŽ†
         printTree(t->right, depth + 1);
     }
     void makeEmpty(LeftistNode *&t)
