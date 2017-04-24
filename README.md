@@ -38,7 +38,7 @@
 :white_check_mark: 快速排序  
 :white_check_mark: 快速选择  
 ### 第八章 不相交集类
-:white_large_square: 不相交集  
+:white_check_mark: 不相交集  
 ### 第九章 图论算法
 :white_large_square: 邻接表(Version 1,2)  
 :white_large_square: 拓扑排序(Version 1,2)  
