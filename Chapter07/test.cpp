@@ -1,5 +1,6 @@
 #include <iostream>
 #include <random>
+#include <algorithm>
 
 using namespace std;
 
@@ -36,6 +37,9 @@ int main()
         quickSelect(arr1, 0, maxSize - 1, maxSize >> 1);
         cout << "the median num is: " << arr1[(maxSize >> 1) - 1] << endl;
     }
+    Timer ts;
+    std::sort(arr.begin(), arr.end());
+    cout << "std::sort " << maxSize << " 个随机数用时: " << ts.stop_delta<Timer::ms>() << " ms" << endl;
 
     getchar();
     return 0;
