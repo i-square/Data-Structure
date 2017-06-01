@@ -8,9 +8,9 @@
 所有实现均~~计划~~给出`.h` `.cpp`文件以及部分用于测试的`test.cpp`文件
 
 ## 环境
-- Windows 10 \& 8.1
+- Windows 10
 - Visual Studio 2015 with update 3
-- C++ (部分C++11语法)
+- C++
 
 ## 章节列表
 ### 第一章 引论 & 第二章 算法分析
@@ -40,22 +40,22 @@
 ### 第八章 不相交集类
 :white_check_mark: 不相交集  
 ### 第九章 图论算法
-:white_large_square: 邻接表(Version 1,2)  
-:white_large_square: 拓扑排序(Version 1,2)  
-:white_large_square: 单源最短路径算法  
-:white_large_square: 最大网络流  
-:white_large_square: 最小生成树  
-:white_large_square: 深度优先搜索  
-:white_large_square: 双连通性  
-:white_large_square: 欧拉回路  
+:negative_squared_cross_mark: 邻接表(Version 1,2)  
+:negative_squared_cross_mark: 拓扑排序(Version 1,2)  
+:negative_squared_cross_mark: 单源最短路径算法  
+:negative_squared_cross_mark: 最大网络流  
+:negative_squared_cross_mark: 最小生成树  
+:negative_squared_cross_mark: 深度优先搜索  
+:negative_squared_cross_mark: 双连通性  
+:negative_squared_cross_mark: 欧拉回路  
 ### 第十章 算法设计技巧
-:white_large_square: 分治算法：最近点问题  
-:white_large_square: 动态规划：斐波那契数列，递归关系，矩阵乘法顺序，最优搜索二叉树  
-:white_large_square: 随机化算法：跳表  
-:white_large_square: 回溯法：收费公路重建，三连棋游戏（带AI）  
+:negative_squared_cross_mark: 分治算法：最近点问题  
+:negative_squared_cross_mark: 动态规划：斐波那契数列，递归关系，矩阵乘法顺序，最优搜索二叉树  
+:negative_squared_cross_mark: 随机化算法：跳表  
+:negative_squared_cross_mark: 回溯法：收费公路重建，三连棋游戏（带AI）  
 ### 第十二章 高级数据结构及其实现
-:white_large_square: 红黑树：自顶向下插入，自顶向下删除  
-:white_large_square: AA树  
-:white_large_square: Treap树  
-:white_large_square: Kd树  
-:white_large_square: 配对堆  
+:negative_squared_cross_mark: 红黑树：自顶向下插入，自顶向下删除  
+:negative_squared_cross_mark: AA树  
+:negative_squared_cross_mark: Treap树  
+:negative_squared_cross_mark: Kd树  
+:negative_squared_cross_mark: 配对堆  
